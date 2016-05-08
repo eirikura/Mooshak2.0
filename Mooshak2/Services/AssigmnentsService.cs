@@ -39,10 +39,18 @@ namespace Mooshak2.Services
             return null;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="partsID"></param>
+        /// <returns></returns>
         public GradeViewModel getGradeByID (int userID, int partsID)
         {
             return null;
         }
+
+
+        
     }
 }
