@@ -17,5 +17,32 @@ namespace Mooshak2.Services
         {
             return null;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="assignmentID"></param>
+        /// <returns></returns>
+        public AssigmentViewModel getAssignmentByID (int assignmentID)
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="partsID"></param>
+        /// <returns></returns>
+        public AssigmentViewModel submitAssignment (int userID, int partsID)
+        {
+            return null;
+        }
+
+
+        public GradeViewModel getGradeByID (int userID, int partsID)
+        {
+            return null;
+        }
     }
 }
