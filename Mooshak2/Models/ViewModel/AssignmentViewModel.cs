@@ -6,7 +6,7 @@ using System.Web;
 namespace Mooshak2.Models.ViewModel
 {
     /// <summary>
-    /// 
+    /// This view will 
     /// </summary>
     public class AssignmentViewModel
     {
