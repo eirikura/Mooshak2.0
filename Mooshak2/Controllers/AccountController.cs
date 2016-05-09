@@ -52,6 +52,57 @@ namespace Mooshak2.Controllers
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        public ActionResult UserDetails(int userID)
+        {
+            int id = userID;
+            return View(id);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult CreateUser()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        public ActionResult EditUser(int userID)
+        {
+            int id = userID;
+            return View(id);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        public ActionResult ManageRoles(int userID)
+        {
+            int id = userID;
+            return View(id);
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
