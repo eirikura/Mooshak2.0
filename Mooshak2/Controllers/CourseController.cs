@@ -22,7 +22,7 @@ namespace Mooshak2.Controllers
 
         public ActionResult CreateCourse()
         {
-
+            return View();
         }
 
         public ActionResult EditCourse(int courseID)
