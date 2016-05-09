@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Mooshak2.Controllers
 {
-    public class CourseController : Controller
+    public class CoursesController : Controller
     {
         // GET: Courses
         public ActionResult Index()
