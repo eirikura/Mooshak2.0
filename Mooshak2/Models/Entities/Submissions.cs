@@ -4,7 +4,7 @@ namespace Mooshak2.Models.Entities
 {
     /// <summary>
     /// Students can submit assignments or assignmentParts into the system.
-    /// These submissions are then strored withis this entity and are connected
+    /// These submissions are then stored withis this entity and are connected
     /// to an user and assignmets using specific ID´s.
     /// </summary>
     public class Submissions
@@ -15,7 +15,7 @@ namespace Mooshak2.Models.Entities
         public int submissionsID { get; set; }
 
         /// <summary>
-        /// An ID number of an user used to connect and user to a submission.
+        /// An ID number of an user used to connect an user to a submission.
         /// </summary>
         public int userID { get; set; }
 

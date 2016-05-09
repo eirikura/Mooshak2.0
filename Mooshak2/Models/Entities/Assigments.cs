@@ -3,7 +3,7 @@
 namespace Mooshak2.Models.Entities
 {
     /// <summary>
-    /// The assignment for a specific course, may be divided into many parts.
+    /// An assignment for a specific course, may be divided into many parts.
     /// Teacher creates assignments which students have to solve and submit.
     /// </summary>
     public class Assigments
