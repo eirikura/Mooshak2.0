@@ -214,6 +214,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ViewModel\AssigmentCreateEditViewModel.cs" />
     <Compile Include="Models\ViewModel\AssigmentViewModel.cs" />
+    <Compile Include="Models\ViewModel\CourseCreateEditViewModel.cs" />
     <Compile Include="Models\ViewModel\GradeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountsService.cs" />
