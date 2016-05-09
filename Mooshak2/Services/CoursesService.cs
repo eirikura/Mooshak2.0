@@ -7,8 +7,8 @@ using System.Web;
 namespace Mooshak2.Services
 {
     /// <summary>
-    /// This service is mainly used to connect entities to the database and retrive data
-    /// by a specified value, for example: getCourseNameByCourseID returns a course
+    /// Services are mainly used to connect entities to the database and retrive data
+    /// from tables, for example: getCourseNameByCourseID returns a course
     /// name by finding a given course ID assigned to it.
     /// </summary>
     public class CoursesService
@@ -18,7 +18,7 @@ namespace Mooshak2.Services
         /// </summary>
         /// <param name="courseID"></param>
         /// <returns></returns>
-        public CourseCreateEditViewModel getCourseNameByCourseID (int courseID)
+        public CourseCreateEditViewModel getCourseNameByCourseID(int courseID)
         {
             //TODO:
             return null;
@@ -29,7 +29,7 @@ namespace Mooshak2.Services
         /// </summary>
         /// <param name="courseID"></param>
         /// <returns></returns>
-        public CourseCreateEditViewModel getCourseDescriptionByCourseID (int courseID)
+        public CourseCreateEditViewModel getCourseDescriptionByCourseID(int courseID)
         {
             //TODO:
             return null;
