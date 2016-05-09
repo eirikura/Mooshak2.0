@@ -8,45 +8,77 @@ namespace Mooshak2.Controllers
 {
     public class AssignmentController : Controller
     {
-        // GET: Assignment
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="assignmentID"></param>
+        /// <returns></returns>
         public ActionResult AssignmentDetails(int assignmentID)
         {
-            int ID = assignmentID;
-            return View(ID);
+            int id = assignmentID;
+            return View(id);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public ActionResult CreateAssignment()
         {
             return View();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="partsID"></param>
+        /// <returns></returns>
         public ActionResult EditAssignment(int partsID)
         {
-            int ID = partsID;
-            return View(ID);
+            int id = partsID;
+            return View(id);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
         public ActionResult ShowCourseGrades(int courseID)
         {
-            int ID = courseID;
-            return View(ID);
+            int id = courseID;
+            return View(id);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public ActionResult ShowStudentGrades(int userID)
         {
-            int ID = userID;
-            return View(ID);
+            int id = userID;
+            return View(id);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="assignmentID"></param>
+        /// <returns></returns>
         public ActionResult ShowAssignmentGrades(int assignmentID)
         {
-            int ID = assignmentID;
-            return View(ID);
+            int id = assignmentID;
+            return View(id);
         }
     }
 }

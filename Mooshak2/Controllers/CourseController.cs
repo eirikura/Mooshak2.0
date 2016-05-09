@@ -8,33 +8,55 @@ namespace Mooshak2.Controllers
 {
     public class CoursesController : Controller
     {
-        // GET: Courses
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
         public ActionResult CourseDetails(int courseID)
         {
-            int ID = courseID;
-            return View(ID);
+            int id = courseID;
+            return View(id);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public ActionResult CreateCourse()
         {
             return View();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
         public ActionResult EditCourse(int courseID)
         {
-            int ID = courseID;
-            return View(ID);
+            int id = courseID;
+            return View(id);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
         public ActionResult AssignUsers(int courseID)
         {
-            int ID = courseID;
-            return View(ID);
+            int id = courseID;
+            return View(id);
         }
            
 
