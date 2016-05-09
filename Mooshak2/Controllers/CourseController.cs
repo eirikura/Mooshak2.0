@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Mooshak2.Controllers
 {
-    public class CoursesController : Controller
+    public class CourseController : Controller
     {
         // GET: Courses
         public ActionResult Index()
@@ -22,7 +22,7 @@ namespace Mooshak2.Controllers
 
         public ActionResult CreateCourse()
         {
-
+            return View();
         }
 
         public ActionResult EditCourse(int courseID)
