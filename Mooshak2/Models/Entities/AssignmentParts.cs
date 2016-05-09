@@ -5,7 +5,7 @@
     /// every assignment has at least one part or more.
     /// Example: An assignment named Project 3 is divided into two parts each weighing 50%.
     /// </summary>
-    public class AssigmentParts
+    public class AssignmentParts
     {
         /// <summary>
         /// An unique auto-generated ID number of a part.

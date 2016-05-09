@@ -6,14 +6,14 @@ using System.Web;
 
 namespace Mooshak2.Services
 {
-    public class AssigmnentsService
+    public class AssignmentsService
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="coursID"></param>
         /// <returns></returns>
-        public List<AssigmentViewModel> getAssigmentsInCourse(int coursID)
+        public List<AssignmentViewModel> getAssigmentsInCourse(int coursID)
         {
             return null;
         }
@@ -23,7 +23,7 @@ namespace Mooshak2.Services
         /// </summary>
         /// <param name="assignmentID"></param>
         /// <returns></returns>
-        public AssigmentViewModel getAssignmentByID (int assignmentID)
+        public AssignmentViewModel getAssignmentByID (int assignmentID)
         {
             return null;
         }
@@ -34,7 +34,7 @@ namespace Mooshak2.Services
         /// <param name="userID"></param>
         /// <param name="partsID"></param>
         /// <returns></returns>
-        public AssigmentViewModel submitAssignment (int userID, int partsID)
+        public AssignmentViewModel submitAssignment (int userID, int partsID)
         {
             return null;
         }

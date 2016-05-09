@@ -204,8 +204,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Entities\AssigmentParts.cs" />
-    <Compile Include="Models\Entities\Assigments.cs" />
+    <Compile Include="Models\Entities\AssignmentParts.cs" />
+    <Compile Include="Models\Entities\Assignments.cs" />
     <Compile Include="Models\Entities\Courses.cs" />
     <Compile Include="Models\Entities\Reviews.cs" />
     <Compile Include="Models\Entities\Roles.cs" />
@@ -215,15 +215,15 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ViewModel\AdminViewModel.cs" />
-    <Compile Include="Models\ViewModel\AssigmentCreateEditViewModel.cs" />
-    <Compile Include="Models\ViewModel\AssigmentViewModel.cs" />
+    <Compile Include="Models\ViewModel\AssignmentCreateEditViewModel.cs" />
+    <Compile Include="Models\ViewModel\AssignmentViewModel.cs" />
     <Compile Include="Models\ViewModel\CourseCreateEditViewModel.cs" />
     <Compile Include="Models\ViewModel\GradeViewModel.cs" />
     <Compile Include="Models\ViewModel\LogInViewModel.cs" />
     <Compile Include="Models\ViewModel\UserCreateEditViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountsService.cs" />
-    <Compile Include="Services\AssigmnentsService.cs" />
+    <Compile Include="Services\AssignmentsService.cs" />
     <Compile Include="Services\CoursesService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

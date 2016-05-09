@@ -15,6 +15,6 @@ namespace Mooshak2.Models.ViewModel
         /// <summary>
         /// 
         /// </summary>
-        public List<AssigmentViewModel> latestChanges { get; set; }
+        public List<AssignmentViewModel> latestChanges { get; set; }
     }
 }

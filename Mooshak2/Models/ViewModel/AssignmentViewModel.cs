@@ -8,7 +8,7 @@ namespace Mooshak2.Models.ViewModel
     /// <summary>
     /// 
     /// </summary>
-    public class AssigmentViewModel
+    public class AssignmentViewModel
     {
         /// <summary>
         /// 
