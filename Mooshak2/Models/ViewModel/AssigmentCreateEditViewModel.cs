@@ -7,9 +7,11 @@ namespace Mooshak2.Models.ViewModel
 {
     public class AssigmentCreateEditViewModel
     {
-    /// <summary>
-    /// 
-    /// </summary>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+    }
     public class AssigmentCreateEditViewModel
     {
         /// <summary>

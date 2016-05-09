@@ -19,4 +19,5 @@
         /// 
         /// </summary>
         public string assigmentName { get; set; }
+    }
 }
