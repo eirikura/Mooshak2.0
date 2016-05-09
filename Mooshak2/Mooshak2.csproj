@@ -214,10 +214,13 @@
     <Compile Include="Models\Entities\UsersAndCourses.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ViewModel\AdminViewModel.cs" />
     <Compile Include="Models\ViewModel\AssigmentCreateEditViewModel.cs" />
     <Compile Include="Models\ViewModel\AssigmentViewModel.cs" />
     <Compile Include="Models\ViewModel\CourseCreateEditViewModel.cs" />
     <Compile Include="Models\ViewModel\GradeViewModel.cs" />
+    <Compile Include="Models\ViewModel\LogInViewModel.cs" />
+    <Compile Include="Models\ViewModel\UserCreateEditViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountsService.cs" />
     <Compile Include="Services\AssigmnentsService.cs" />
