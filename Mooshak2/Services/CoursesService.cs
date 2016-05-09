@@ -7,7 +7,7 @@ using System.Web;
 namespace Mooshak2.Services
 {
     /// <summary>
-    /// Services are mainly used to connect entities to the database and retrive data
+    /// Services are mainly used to connect entities to the database and retrieve/submit data
     /// from tables, for example: getCourseNameByCourseID returns a course
     /// name by finding a given course ID assigned to it.
     /// </summary>

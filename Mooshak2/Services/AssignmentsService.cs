@@ -7,7 +7,7 @@ using System.Web;
 namespace Mooshak2.Services
 {
     /// <summary>
-    /// Services are mainly used to connect entities to the database and retrive data
+    /// Services are mainly used to connect entities to the database and retrieve/submit data
     /// from tables, for example: getAssigmentsInCourse returns a list of all assignments
     /// assigned to the given course ID.
     /// </summary>
@@ -50,13 +50,13 @@ namespace Mooshak2.Services
         /// <param name="userID"></param>
         /// <param name="partsID"></param>
         /// <returns></returns>
-        public GradeViewModel getGradeByID(int userID, int partsID)
+        public GradeViewModel getGradeByUserPartsID(int userID, int partsID)
         {
             return null;
         }
 
         /// <summary>
-        /// Returns an users full name assigned to the specified user ID
+        /// Returns an users full name assigned to the specified user ID.
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
