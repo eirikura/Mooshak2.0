@@ -97,7 +97,13 @@ namespace Mooshak2.Services
         /// <returns></returns>
         public UserCreateEditViewModel getFullNameByUserID(int userID)
         {
-            return null;
+            var fullName = _db.Users.SingleOrDefault(x => x.userID == userID);
+
+            var viewModel = new UserCreateEditViewModel
+            {
+                fullName = fullName.fullName
+            };
+            return viewModel;
         }
 
         /// <summary>
@@ -107,7 +113,17 @@ namespace Mooshak2.Services
         /// <returns></returns>
         public AssignmentViewModel getAssignmentByPartsID(int partsID)
         {
-            return null;
+            var assignmentPart = _db.AssignmentParts.SingleOrDefault(x => x.partsID == partsID);
+            var assignmentID = assignmentPart.assignmentID;
+
+            var assignmentName = _db.Assignments.SingleOrDefault(x => x.assignmentID == assignmentID);
+
+            var viewModel = new AssignmentViewModel
+            {
+                assignmentName = assignmentName.assignmentName
+            };
+
+            return viewModel;
         }
         
     }
