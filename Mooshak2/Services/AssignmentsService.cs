@@ -28,7 +28,10 @@ namespace Mooshak2.Services
         /// <returns></returns>
         public List<AssignmentViewModel> getAssigmentsInCourse(int courseID)
         {
-            
+            ///TODO:
+            var course = _db.Courses.SingleOrDefault(x => x.courseID == courseID);
+
+
 
             return null;
         }
@@ -66,6 +69,7 @@ namespace Mooshak2.Services
         /// <returns></returns>
         public AssignmentViewModel submitAssignment(int userID, int partsID)
         {
+            ///TODO:
             return null;
         }
 
@@ -75,9 +79,15 @@ namespace Mooshak2.Services
         /// <param name="userID"></param>
         /// <param name="partsID"></param>
         /// <returns></returns>
-        public GradeViewModel getGradeByUserPartsID(int userID, int partsID)
+        public GradeViewModel getGradeByUserReviewID(int reviewID)
         {
-            return null;
+            var grade = _db.Reviews.SingleOrDefault(x => x.reviewID == reviewID);
+
+            var viewModel = new GradeViewModel
+            {
+                grade = grade.grade
+            };
+            return viewModel;
         }
 
         /// <summary>
