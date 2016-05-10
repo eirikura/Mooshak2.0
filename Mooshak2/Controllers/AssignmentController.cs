@@ -9,7 +9,7 @@ namespace Mooshak2.Controllers
 {
     public class AssignmentController : Controller
     {
-        private AssignmentsService _service = new AssignmentService();
+        private AssignmentsService _service = new AssignmentsService();
         /// <summary>
         /// 
         /// </summary>
