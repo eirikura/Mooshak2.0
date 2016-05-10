@@ -15,6 +15,6 @@ namespace Mooshak2.Models.ViewModel
         /// <summary>
         /// 
         /// </summary>
-        public String password { get; set; }
+        public string password { get; set; }
     }
 }
