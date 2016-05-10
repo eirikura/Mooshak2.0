@@ -5,6 +5,11 @@ using System.Web;
 
 namespace Mooshak2.Models.ViewModel
 {
+    /// <summary>
+    /// The frontpage of the whole website. It is required to log in to the system in orded to be 
+    /// able to perform any action within the system. The users available actions depend on the users 
+    /// assigned role.
+    /// </summary>
     public class LogInViewModel
     {
         /// <summary>
