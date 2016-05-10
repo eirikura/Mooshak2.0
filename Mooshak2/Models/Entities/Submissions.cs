@@ -25,6 +25,11 @@ namespace Mooshak2.Models.Entities
         public int partsID { get; set; }
 
         /// <summary>
+        /// An ID number of a programming language used in the submission.
+        /// </summary>
+        public int languageID { get; set; }
+
+        /// <summary>
         /// An ID number of an review used to connect it to a submission.
         /// </summary>
         public int reviewID { get; set; }

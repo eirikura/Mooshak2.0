@@ -18,14 +18,19 @@
         public int assignmentID { get; set; }
 
         /// <summary>
+        /// An ID used to set which programming language should be used for the assignment.
+        /// </summary>
+        public int languageID { get; set; }
+
+        /// <summary>
         /// A name(title) of a part.
         /// </summary>
-        public string partsName { get; set; }
+        public string name { get; set; }
 
         /// <summary>
         /// A description of a part.
         /// </summary>
-        public string partsDescription { get; set; }
+        public string description { get; set; }
 
         /// <summary>
         /// The weight of a part in percentages.

@@ -16,11 +16,11 @@
         /// <summary>
         /// A name(title) of a course
         /// </summary>
-        public string courseName { get; set; }
+        public string name { get; set; }
 
         /// <summary>
         /// A short description of a course.
         /// </summary>
-        public string courseDescription { get; set; }
+        public string description { get; set; }
     }
 }

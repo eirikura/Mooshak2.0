@@ -21,13 +21,13 @@ namespace Mooshak2.Models.Entities
         /// <summary>
         /// A name(title) of an assignment.
         /// </summary>
-        public string assignmentName { get; set; }
+        public string name { get; set; }
 
         /// <summary>
         /// The due time of an assignment. The assignment cannot be longer submitted past
         /// this specified due time.
         /// </summary>
-        public DateTime assignmentDueDate { get; set; }
+        public DateTime dueDate { get; set; }
 
     }
 }

@@ -49,13 +49,13 @@ namespace Mooshak2.Services
                 .Where(x => x.assignmentID == assignmentID)
                 .Select(x => new AssignmentViewModel
                 {
-                    assignmentName = x.partsName
+                    assignmentName = x.name
                 })
                 .ToList();
 
             var viewModel = new AssignmentViewModel
             {
-                assignmentName = assignment.assignmentName,
+                assignmentName = assignment.name,
                 PartsList = assignmentParts
             };
             return viewModel;
@@ -120,7 +120,7 @@ namespace Mooshak2.Services
 
             var viewModel = new AssignmentViewModel
             {
-                assignmentName = assignmentName.assignmentName
+                assignmentName = assignmentName.name
             };
 
             return viewModel;
