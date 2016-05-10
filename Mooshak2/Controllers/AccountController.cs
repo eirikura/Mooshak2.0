@@ -56,7 +56,7 @@ namespace Mooshak2.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Returns the main accounts view.
         /// </summary>
         /// <returns></returns>
         public ActionResult Index()
@@ -65,7 +65,7 @@ namespace Mooshak2.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Returns the user details view for the specified user.
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
@@ -76,7 +76,7 @@ namespace Mooshak2.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Returns the user creation view.
         /// </summary>
         /// <returns></returns>
         public ActionResult CreateUser()
@@ -85,7 +85,7 @@ namespace Mooshak2.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Returns the user editing view for the specified user.
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
@@ -96,7 +96,7 @@ namespace Mooshak2.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Returns the role managament view.
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
