@@ -13,22 +13,22 @@ namespace Mooshak2.Models.ViewModel
     public class CourseCreateEditViewModel
     {
         /// <summary>
-        /// Shows the courses name.
+        /// The courses name.
         /// </summary>
         public string courseName { get; set; }
 
         /// <summary>
-        /// Shows the courses description.
+        /// The courses description.
         /// </summary>
         public string courseDescription { get; set; }
 
         /// <summary>
-        /// Shows the courses ID.
+        /// The courses ID.
         /// </summary>
         public int courseID { get; set; }
 
         /// <summary>
-        /// Shows the users ID.
+        /// The users ID.
         /// </summary>
         public int userID { get; set; }
     }

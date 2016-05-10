@@ -12,22 +12,22 @@ namespace Mooshak2.Models.ViewModel
     public class GradeViewModel
     {
         /// <summary>
-        /// Shows the full name of a student.
+        /// The full name of a student.
         /// </summary>
         public string fullName { get; set; }
 
         /// <summary>
-        /// Shows the date of submitting.
+        /// The date of submission.
         /// </summary>
         public DateTime submissionDate { get; set; }
 
         /// <summary>
-        /// Shows the time of submitting.
+        /// The time of submission.
         /// </summary>
         public DateTime assignmentDueDate { get; set; }
 
         /// <summary>
-        /// Shows the users grade.
+        /// The grade user got.
         /// </summary>
         public double grade { get; set; }
     }
