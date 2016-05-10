@@ -26,9 +26,9 @@ namespace Mooshak2.Services
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public UserCreateEditViewModel getUsernameByUserID(int userId)
+        public UserCreateEditViewModel getUsernameByUserID(int userID)
         {
-            var username = _db.Users.SingleOrDefault(x => x.userID == userId);
+            var username = _db.Users.SingleOrDefault(x => x.userID == userID);
 
             var viewModel = new UserCreateEditViewModel
             {
@@ -44,7 +44,13 @@ namespace Mooshak2.Services
         /// <returns></returns>
         public UserCreateEditViewModel getPasswordByUserID(int userID)
         {
-            return null;
+            var password = _db.Users.SingleOrDefault(x => x.userID == userID);
+
+            var viewModel = new UserCreateEditViewModel
+            {
+                password = password.password
+            };
+            return viewModel;
         }
 
         /// <summary>
