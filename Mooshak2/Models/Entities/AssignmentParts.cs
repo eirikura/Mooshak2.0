@@ -15,7 +15,7 @@
         /// <summary>
         /// An unique ID used to connect a part with an assignment.
         /// </summary>
-        public int assigmentID { get; set; }
+        public int assignmentID { get; set; }
 
         /// <summary>
         /// A name(title) of a part.

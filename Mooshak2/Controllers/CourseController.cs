@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mooshak2.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace Mooshak2.Controllers
 {
     public class CoursesController : Controller
     {
+        private CoursesService _service = new CoursesService();
         /// <summary>
         /// 
         /// </summary>
@@ -24,8 +26,9 @@ namespace Mooshak2.Controllers
         /// <returns></returns>
         public ActionResult CourseDetails(int courseID)
         {
-            int id = courseID;
-            return View(id);
+            var viewModel = _service.getCourseDescriptionByCourseID(courseID);
+
+            return View(viewModel);
         }
 
         /// <summary>
@@ -44,8 +47,9 @@ namespace Mooshak2.Controllers
         /// <returns></returns>
         public ActionResult EditCourse(int courseID)
         {
-            int id = courseID;
-            return View(id);
+            var viewModel = _service.getCourseNameByCourseID(courseID);
+
+            return View(viewModel);
         }
 
         /// <summary>
