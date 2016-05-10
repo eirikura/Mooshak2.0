@@ -3,8 +3,6 @@
 namespace Mooshak2.Models.Entities
 {
     /// <summary>
-    /// NOT SURE IF INCLUDED IN FINAL VERSION!!
-    /// 
     /// The idea of reviews is to have a teacher give a direct review on an assignment
     /// for a specified student. The student would be then able to see a review from a
     /// teacher under an assignment he had submitted.
