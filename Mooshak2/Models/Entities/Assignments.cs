@@ -19,11 +19,6 @@ namespace Mooshak2.Models.Entities
         public int courseID { get; set; }
 
         /// <summary>
-        /// An unique ID used to connect an assignment with its parts.
-        /// </summary>
-        public int partsID { get; set; }
-
-        /// <summary>
         /// A name(title) of an assignment.
         /// </summary>
         public string assignmentName { get; set; }
@@ -33,7 +28,6 @@ namespace Mooshak2.Models.Entities
         /// this specified due time.
         /// </summary>
         public DateTime assignmentDueDate { get; set; }
-
 
     }
 }

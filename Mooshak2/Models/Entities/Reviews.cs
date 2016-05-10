@@ -15,14 +15,14 @@ namespace Mooshak2.Models.Entities
         public int reviewID { get; set; }
 
         /// <summary>
-        /// An unique ID used to connect a review with a submission ID.
-        /// </summary>
-        public int submissionID { get; set; }
-
-        /// <summary>
         /// An unique ID used to connect a review with an user.
         /// </summary>
         public int userID { get; set; }
+
+        /// <summary>
+        /// The review grade given by teacher.
+        /// </summary>
+        public int grade { get; set; }
 
         /// <summary>
         /// The actual review given by teacher.

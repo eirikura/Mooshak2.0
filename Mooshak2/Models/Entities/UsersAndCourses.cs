@@ -8,11 +8,6 @@
     public class UsersAndCourses
     {
         /// <summary>
-        /// An unique auto-generated ID number of the user in a specific course.
-        /// </summary>
-        public int userCourseID { get; set; }
-
-        /// <summary>
         /// An ID number of an user used to connect an user with a course.
         /// </summary>
         public int userID { get; set; }

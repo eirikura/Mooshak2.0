@@ -15,7 +15,7 @@
         /// <summary>
         /// An unique ID used to connect a part with an assignment.
         /// </summary>
-        public int assigmentID { get; set; }
+        public int assignmentID { get; set; }
 
         /// <summary>
         /// A name(title) of a part.
@@ -32,5 +32,10 @@
         /// Example: An assignment is divided into two parts, each having 50% weight(percentage).
         /// </summary>
         public int percentage { get; set; }
+
+        /// <summary>
+        /// Any additional study material needed for the specific part. This be a file.
+        /// </summary>
+        public string studyMaterial { get; set; }
     }
 }

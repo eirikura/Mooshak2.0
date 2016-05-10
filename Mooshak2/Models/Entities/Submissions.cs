@@ -30,11 +30,6 @@ namespace Mooshak2.Models.Entities
         public int reviewID { get; set; }
 
         /// <summary>
-        /// A final grade each user is given for a submission.
-        /// </summary>
-        public double grade { get; set; }
-
-        /// <summary>
         /// The url location of the file the student submitted.
         /// </summary>
         public string file { get; set; }
@@ -42,11 +37,6 @@ namespace Mooshak2.Models.Entities
         /// <summary>
         /// The date at which a part of an assignment was submitted.
         /// </summary>
-        public DateTime submissionDate { get; set; }
-
-        /// <summary>
-        /// The time at which a part of an assignment was submitted.
-        /// </summary>
-        public DateTime submissionTime { get; set; }
+        public DateTime submissionDateTime { get; set; }
     }
 }
