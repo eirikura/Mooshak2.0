@@ -40,26 +40,20 @@ namespace Mooshak2.Services
         /// <returns></returns>
         public AssignmentViewModel getAssignmentByAssignmentID(int assignmentID)
         {
-            var assignment = _db.Assignments.SingleOrDefault(x => x.assigmentID == assignmentID)
+            var assignment = _db.Assignments.SingleOrDefault(x => x.assignmentID == assignmentID);
 
-
-            if (assignment == null)
-            {
-
-            }
-
-            var assignmentParts = -_db.AssignmentParts
-                .Where(x => x.assigmentID == assignmentID)
+            var assignmentParts = _db.AssignmentParts
+                .Where(x => x.assignmentID == assignmentID)
                 .Select(x => new AssignmentViewModel
                 {
                     assignmentName = x.partsName
                 })
-
                 .ToList();
 
             var viewModel = new AssignmentViewModel
             {
-                assignmentName = assignment.assignmentName
+                assignmentName = assignment.assignmentName,
+                PartsList = assignmentParts
             };
             return viewModel;
         }

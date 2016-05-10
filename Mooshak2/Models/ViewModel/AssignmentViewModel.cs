@@ -36,5 +36,10 @@ namespace Mooshak2.Models.ViewModel
         /// The time of submission.
         /// </summary>
         public DateTime submissionTime { get; set; }
+
+        /// <summary>
+        /// Shows a list of the students upcoming assignments.
+        /// </summary>
+        public List<AssignmentViewModel> PartsList { get; set; }
     }
 }
