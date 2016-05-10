@@ -1,4 +1,5 @@
-﻿using Mooshak2.Models.ViewModel;
+﻿using Mooshak2.Models;
+using Mooshak2.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,14 @@ namespace Mooshak2.Services
     /// </summary>
     public class AccountsService
     {
+        private ApplicationDbContext _db;
+
+        public AccountsService ()
+        {
+            _db = new ApplicationDbContext();
+        }
+
+
         /// <summary>
         /// Returns the username for an user with the given user ID.
         /// </summary>
@@ -19,7 +28,13 @@ namespace Mooshak2.Services
         /// <returns></returns>
         public UserCreateEditViewModel getUsernameByUserID(int userId)
         {
-            return null;
+            var username = _db.Users.SingleOrDefault(x => x.userID == userId);
+
+            var viewModel = new UserCreateEditViewModel
+            {
+                username = username.username
+            };
+            return viewModel;
         }
 
         /// <summary>
