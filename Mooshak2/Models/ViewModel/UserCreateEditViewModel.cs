@@ -13,6 +13,11 @@ namespace Mooshak2.Models.ViewModel
     public class UserCreateEditViewModel
     {
         /// <summary>
+        /// The users ID number.
+        /// </summary>
+        public int userID { get; set; }
+
+        /// <summary>
         /// The users username.
         /// </summary>
         public string username { get; set; }
