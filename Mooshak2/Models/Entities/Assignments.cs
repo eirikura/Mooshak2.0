@@ -11,7 +11,7 @@ namespace Mooshak2.Models.Entities
         /// <summary>
         /// An unique auto-generated ID number of an assignment.
         /// </summary>
-        public int assigmentID { get; set; }
+        public int assignmentID { get; set; }
 
         /// <summary>
         /// An unique ID used to connect an assignment with a course.
@@ -26,7 +26,7 @@ namespace Mooshak2.Models.Entities
         /// <summary>
         /// A name(title) of an assignment.
         /// </summary>
-        public string assigmentName { get; set; }
+        public string assignmentName { get; set; }
 
         /// <summary>
         /// The due time of an assignment. The assignment cannot be longer submitted past

@@ -59,6 +59,7 @@ html {
 
 body {
   margin: 0;
+  margin-top: 15%;
 }
 
 a:focus {
@@ -6815,4 +6816,8 @@ td.visible-print {
   td.hidden-print {
     display: none !important;
   }
+}
+
+#loginform {
+  margin: auto;
 }

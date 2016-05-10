@@ -1,4 +1,5 @@
-﻿using Mooshak2.Models.ViewModel;
+﻿using Mooshak2.Models;
+using Mooshak2.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,13 @@ namespace Mooshak2.Services
     /// </summary>
     public class AssignmentsService
     {
+        private ApplicationDbContext _db;
+
+        public AssignmentsService()
+        {
+            _db = new ApplicationDbContext();
+        }
+
         /// <summary>
         /// Returns a list of all the courses assigned to the given course ID.
         /// </summary>
@@ -20,6 +28,8 @@ namespace Mooshak2.Services
         /// <returns></returns>
         public List<AssignmentViewModel> getAssigmentsInCourse(int courseID)
         {
+            
+
             return null;
         }
 
@@ -30,7 +40,28 @@ namespace Mooshak2.Services
         /// <returns></returns>
         public AssignmentViewModel getAssignmentByAssignmentID(int assignmentID)
         {
-            return null;
+            var assignment = _db.Assignments.SingleOrDefault(x => x.assigmentID == assignmentID)
+
+
+            if (assignment == null)
+            {
+
+            }
+
+            var assignmentParts = -_db.AssignmentParts
+                .Where(x => x.assigmentID == assignmentID)
+                .Select(x => new AssignmentViewModel
+                {
+                    assignmentName = x.partsName
+                })
+
+                .ToList();
+
+            var viewModel = new AssignmentViewModel
+            {
+                assignmentName = assignment.assignmentName
+            };
+            return viewModel;
         }
 
         /// <summary>

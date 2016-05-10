@@ -15,7 +15,7 @@ namespace Mooshak2.Models.ViewModel
         /// <summary>
         /// The name of the assignment.
         /// </summary>
-        public string assigmentName { get; set; }
+        public string assignmentName { get; set; }
 
         /// <summary>
         /// The description of the assignment or a part of it.
