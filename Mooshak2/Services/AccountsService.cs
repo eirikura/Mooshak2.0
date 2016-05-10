@@ -92,8 +92,13 @@ namespace Mooshak2.Services
         /// <returns></returns>
         public UserCreateEditViewModel getUserIDByUsername(string username)
         {
+            var userID = _db.Users.SingleOrDefault(x => x.username == username);
 
-            return null;
+            var viewModel = new UserCreateEditViewModel
+            {
+                userID = userID.userID
+            };
+            return viewModel;
         }
     }
 }
