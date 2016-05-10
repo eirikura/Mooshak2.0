@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Mooshak2.Models;
+using Mooshak2.Services;
 
 namespace Mooshak2.Controllers
 {
@@ -17,6 +18,8 @@ namespace Mooshak2.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+
+        private AccountsService _service = new AccountsService();
 
         public AccountController()
         {
@@ -68,8 +71,8 @@ namespace Mooshak2.Controllers
         /// <returns></returns>
         public ActionResult UserDetails(int userID)
         {
-            int id = userID;
-            return View(id);
+            var viewModel = _service.getUsernameByUserID(userID);
+            return View(viewModel);
         }
 
         /// <summary>
@@ -88,8 +91,8 @@ namespace Mooshak2.Controllers
         /// <returns></returns>
         public ActionResult EditUser(int userID)
         {
-            int id = userID;
-            return View(id);
+            var viewModel = _service.getUsernameByUserID(userID);
+            return View(viewModel);
         }
 
         /// <summary>
@@ -99,8 +102,8 @@ namespace Mooshak2.Controllers
         /// <returns></returns>
         public ActionResult ManageRoles(int userID)
         {
-            int id = userID;
-            return View(id);
+            var viewModel = _service.getUsernameByUserID(userID);
+            return View(viewModel);
         }
 
         //
