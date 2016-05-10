@@ -7,7 +7,7 @@ namespace Mooshak2.Models.ViewModel
 {
     /// <summary>
     /// Frontpage for the Admin. Shows latest changes for assignments added, user created or 
-    /// course created in a list. Home,  Users, Courses and settings buttons should be displayed on the frontpage.
+    /// course created in a list. Home, Users, Courses and Settings buttons should be displayed on the frontpage.
     /// </summary>
     public class AdminViewModel
     {

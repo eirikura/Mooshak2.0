@@ -7,7 +7,8 @@ using System.Web.Mvc;
 namespace Mooshak2.Models.ViewModel
 {
     /// <summary>
-    /// 
+    /// Teachers frontpage. Shows a list of courses the teacher is currently attending to.
+    /// Home, Courses, Grades and Settings buttons should be displayed on the frontpage.
     /// </summary>
     public class TeacherViewModel
     {

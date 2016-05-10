@@ -220,6 +220,7 @@
     <Compile Include="Models\ViewModel\CourseCreateEditViewModel.cs" />
     <Compile Include="Models\ViewModel\GradeViewModel.cs" />
     <Compile Include="Models\ViewModel\LogInViewModel.cs" />
+    <Compile Include="Models\ViewModel\StudentViewModel.cs" />
     <Compile Include="Models\ViewModel\TeacherViewModel.cs" />
     <Compile Include="Models\ViewModel\UserCreateEditViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -293,6 +294,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\Assignment\" />
     <Folder Include="Views\Courses\" />
+    <Folder Include="Views\StudentViewModel\" />
     <Folder Include="Views\TeacherViewModel\" />
   </ItemGroup>
   <ItemGroup>
