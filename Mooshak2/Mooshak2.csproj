@@ -204,6 +204,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Entities\AssignmentLanguage.cs" />
     <Compile Include="Models\Entities\AssignmentParts.cs" />
     <Compile Include="Models\Entities\Assignments.cs" />
     <Compile Include="Models\Entities\Courses.cs" />
