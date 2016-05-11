@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Mooshak2.Models.Entities
 {
@@ -25,5 +26,15 @@ namespace Mooshak2.Models.Entities
         /// A short description of a course.
         /// </summary>
         public string description { get; set; }
+
+        /// <summary>
+        /// Course can have many assignments.
+        /// </summary>
+        public virtual ICollection<Assignments> assignmentsList { get; set; }
+
+        /// <summary>
+        /// Courses have many users.
+        /// </summary>
+        public virtual ICollection<Users> userList { get; set; }
     }
 }

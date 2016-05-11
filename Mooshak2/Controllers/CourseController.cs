@@ -26,7 +26,7 @@ namespace Mooshak2.Controllers
         /// <returns></returns>
         public ActionResult CourseDetails(int courseID)
         {
-            var viewModel = _service.getCourseDescriptionByCourseID(courseID);
+            var viewModel = _service.getCourseByCourseID(courseID);
 
             return View(viewModel);
         }
@@ -47,7 +47,7 @@ namespace Mooshak2.Controllers
         /// <returns></returns>
         public ActionResult EditCourse(int courseID)
         {
-            var viewModel = _service.getCourseNameByCourseID(courseID);
+            var viewModel = _service.getCourseByCourseID(courseID);
 
             return View(viewModel);
         }
