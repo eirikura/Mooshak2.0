@@ -69,9 +69,9 @@ namespace Mooshak2.Controllers
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
-        public ActionResult UserDetails(int userID)
+        public ActionResult UserDetails()
         {
-            var viewModel = _service.getUsernameByUserID(userID);
+            var viewModel = _service.getUsernameByUserID();
             return View(viewModel);
         }
 

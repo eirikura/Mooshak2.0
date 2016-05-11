@@ -1,4 +1,6 @@
-﻿using Mooshak2.Models;
+﻿using Microsoft.AspNet.Identity;
+using Mooshak2.Models;
+using Mooshak2.Models.Entities;
 using Mooshak2.Models.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -26,15 +28,21 @@ namespace Mooshak2.Services
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public UserCreateEditViewModel getUsernameByUserID(int userID)
+        public Users getUsernameByUserID()
         {
-            var username = _db.Users.SingleOrDefault(x => x.userID == userID);
+            var currentUser = HttpContext.Current.User.Identity.GetUserId();
+
+            int x = int.Parse(currentUser);
+
+            var user = (from n in _db.Users
+                        where n.userID == x
+                        select n).SingleOrDefault();
 
             var viewModel = new UserCreateEditViewModel
             {
-                username = username.username
+                username = user.username
             };
-            return viewModel;
+            return user;
         }
 
         /// <summary>
