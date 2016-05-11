@@ -24,7 +24,7 @@ namespace Mooshak2.Models.Entities
         /// <summary>
         /// The review grade given by teacher.
         /// </summary>
-        public int grade { get; set; }
+        public int? grade { get; set; }
 
         /// <summary>
         /// The actual review given by teacher.

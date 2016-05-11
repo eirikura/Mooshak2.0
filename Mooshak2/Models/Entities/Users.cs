@@ -42,7 +42,7 @@ namespace Mooshak2.Models.Entities
         /// <summary>
         /// This is the phone number the user has given.
         /// </summary>
-        public int phoneNumber { get; set; }
+        public int? phoneNumber { get; set; }
 
         /// <summary>
         /// This is the url path to the profile picture of the user.

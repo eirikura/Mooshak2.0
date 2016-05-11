@@ -27,12 +27,17 @@ namespace Mooshak2.Models.Entities
         /// <summary>
         /// An ID number of a programming language used in the submission.
         /// </summary>
-        public int languageID { get; set; }
+        public int? languageID { get; set; }
 
         /// <summary>
         /// An ID number of an review used to connect it to a submission.
         /// </summary>
-        public int reviewID { get; set; }
+        public int? reviewID { get; set; }
+
+        /// <summary>
+        /// A boolean value used to tell whether the submission was correct or not.
+        /// </summary>
+        public bool? accepted { get; set; }
 
         /// <summary>
         /// The url location of the file the student submitted.
