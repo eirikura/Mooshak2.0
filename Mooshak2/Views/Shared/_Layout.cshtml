@@ -18,7 +18,9 @@
                 @Html.ActionLink("Mooshak 2.0", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                @Html.Partial("_LoginPartial")
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Edit Current User", "UserDetails", "Account")</li>
+                </ul>
             </div>
         </div>
     </div>

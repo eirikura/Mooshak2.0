@@ -24,7 +24,7 @@ namespace Mooshak2.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
-
+/*
         [TestMethod]
         public void About()
         {
@@ -37,7 +37,7 @@ namespace Mooshak2.Tests.Controllers
             // Assert
             Assert.AreEqual("Your application description page.", result.ViewBag.Message);
         }
-
+        
         [TestMethod]
         public void Contact()
         {
@@ -49,6 +49,6 @@ namespace Mooshak2.Tests.Controllers
 
             // Assert
             Assert.IsNotNull(result);
-        }
+        }*/
     }
 }

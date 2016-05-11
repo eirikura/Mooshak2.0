@@ -28,21 +28,37 @@ namespace Mooshak2.Services
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public Users getUsernameByUserID()
+        public UserCreateEditViewModel getUsernameByUserID()
         {
+            
             var currentUser = HttpContext.Current.User.Identity.GetUserId();
-
             int x = int.Parse(currentUser);
-
             var user = (from n in _db.Users
                         where n.userID == x
                         select n).SingleOrDefault();
 
+            var currUserName = HttpContext.Current.User.Identity.GetUserName();
+
+            var u = (from n in _db.Users
+                     where n.email == currUserName
+                     select n).SingleOrDefault();
+
+
             var viewModel = new UserCreateEditViewModel
             {
-                username = user.username
+                username = user.username,
+                email = user.email,
+                fullName = user.fullName
             };
-            return user;
+            // return viewModel;
+
+            var model = new UserCreateEditViewModel
+            {
+                username = u.username,
+                email = u.email,
+                fullName = u.fullName
+            };
+            return model;
         }
 
         /// <summary>
