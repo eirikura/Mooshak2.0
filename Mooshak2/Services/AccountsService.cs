@@ -77,6 +77,7 @@ namespace Mooshak2.Services
             return model;
         }
 
+
         /// <summary>
         /// Returns the full name of an user with the given user ID.
         /// </summary>
