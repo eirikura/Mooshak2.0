@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Mooshak2.Models.Entities
 {
@@ -8,6 +9,7 @@ namespace Mooshak2.Models.Entities
     /// </summary>
     public class Assignments
     {
+        [Key]
         /// <summary>
         /// An unique auto-generated ID number of an assignment.
         /// </summary>

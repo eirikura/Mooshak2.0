@@ -1,4 +1,6 @@
-﻿namespace Mooshak2.Models.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Mooshak2.Models.Entities
 {
     /// <summary>
     /// This entity stores all the details about allthe users in the system.
@@ -6,6 +8,7 @@
     /// </summary>
     public class Users
     {
+        [Key]
         /// <summary>
         /// An unique auto-generated ID number of an user.
         /// </summary>

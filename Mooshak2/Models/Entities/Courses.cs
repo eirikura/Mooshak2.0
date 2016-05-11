@@ -1,4 +1,6 @@
-﻿namespace Mooshak2.Models.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Mooshak2.Models.Entities
 {
     /// <summary>
     /// Courses are added into the system by an admin.
@@ -8,6 +10,7 @@
     /// </summary>
     public class Courses
     {
+        [Key]
         /// <summary>
         /// An unique auto-generated ID number of an course.
         /// </summary>

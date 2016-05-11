@@ -54,7 +54,7 @@ namespace Mooshak2.Controllers
                 _userManager = value;
             }
         }
-
+        
         /// <summary>
         /// Returns the main accounts view.
         /// </summary>
@@ -105,7 +105,7 @@ namespace Mooshak2.Controllers
             var viewModel = _service.getUsernameByUserID(userID);
             return View(viewModel);
         }
-
+        
         //
         // GET: /Account/Login
         [AllowAnonymous]
