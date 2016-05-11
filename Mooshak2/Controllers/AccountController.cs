@@ -61,7 +61,8 @@ namespace Mooshak2.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+            var viewModel = _service.getAllUsers();
+            return View(viewModel);
         }
 
         /// <summary>
@@ -69,9 +70,11 @@ namespace Mooshak2.Controllers
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
-        public ActionResult UserDetails(int userID)
+        public ActionResult UserDetails(int? userID)
         {
-            var viewModel = _service.getUsernameByUserID(userID);
+            int ID = userID.Value;
+
+            var viewModel = _service.getUserByEmail(ID);
             return View(viewModel);
         }
 
@@ -89,10 +92,10 @@ namespace Mooshak2.Controllers
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
-        public ActionResult EditUser(int userID)
+        public ActionResult EditUser()
         {
-            var viewModel = _service.getUsernameByUserID(userID);
-            return View(viewModel);
+        //    var viewModel = _service.getUsernameByUserID(userID);
+            return View();
         }
 
         /// <summary>
@@ -100,10 +103,10 @@ namespace Mooshak2.Controllers
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
-        public ActionResult ManageRoles(int userID)
+        public ActionResult ManageRoles()
         {
-            var viewModel = _service.getUsernameByUserID(userID);
-            return View(viewModel);
+          //  var viewModel = _service.getUsernameByUserID(userID);
+            return View();
         }
         
         //
