@@ -89,7 +89,7 @@ namespace Mooshak2.Controllers
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
-        public ActionResult EditUser(int userID)
+        public ActionResult EditUser()
         {
         //    var viewModel = _service.getUsernameByUserID(userID);
             return View();
@@ -100,7 +100,7 @@ namespace Mooshak2.Controllers
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
-        public ActionResult ManageRoles(int userID)
+        public ActionResult ManageRoles()
         {
           //  var viewModel = _service.getUsernameByUserID(userID);
             return View();
