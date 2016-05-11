@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Mooshak2.Models.ViewModel
+﻿namespace Mooshak2.Models.ViewModel
 {
     /// <summary>
     /// The frontpage of the whole website. It is required to log in to the system in orded to be 

@@ -1,4 +1,6 @@
-﻿namespace Mooshak2.Models.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Mooshak2.Models.Entities
 {
     /// <summary>
     /// It is possible to divide an assignment into many parts with different weight for each,
@@ -7,6 +9,7 @@
     /// </summary>
     public class AssignmentParts
     {
+        [Key]
         /// <summary>
         /// An unique auto-generated ID number of a part.
         /// </summary>

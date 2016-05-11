@@ -1,4 +1,6 @@
-﻿namespace Mooshak2.Models.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Mooshak2.Models.Entities
 {
     /// <summary>
     /// This entity connects users(teachers and students) to courses.
@@ -7,6 +9,7 @@
     /// </summary>
     public class UsersAndCourses
     {
+        [Key]
         /// <summary>
         /// An unique auto-generated ID number of the user in a specific course.
         /// </summary>

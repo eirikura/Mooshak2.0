@@ -51,7 +51,7 @@ namespace Mooshak2.Controllers
                 _userManager = value;
             }
         }
-
+        
         /// <summary>
         /// 
         /// </summary>
@@ -102,7 +102,7 @@ namespace Mooshak2.Controllers
             int id = userID;
             return View(id);
         }
-
+        
         //
         // GET: /Account/Login
         [AllowAnonymous]
