@@ -61,7 +61,8 @@ namespace Mooshak2.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+            var viewModel = _service.getAllUsers();
+            return View(viewModel);
         }
 
         /// <summary>
@@ -69,9 +70,11 @@ namespace Mooshak2.Controllers
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
-        public ActionResult UserDetails()
+        public ActionResult UserDetails(int? userID)
         {
-            var viewModel = _service.getUsernameByUserID();
+            int ID = userID.Value;
+
+            var viewModel = _service.getUserByEmail(ID);
             return View(viewModel);
         }
 

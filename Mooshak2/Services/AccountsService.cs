@@ -22,35 +22,31 @@ namespace Mooshak2.Services
             _db = new ApplicationDbContext();
         }
 
+        /// <summary>
+        /// Returns a list of all students
+        /// </summary>
+        /// <returns></returns>
+        public List<Users> getAllUsers()
+        {
+            List<Users> users = (from u in _db.Users
+                         select u).ToList();
+
+
+            return users;
+        }
 
         /// <summary>
-        /// Returns the username for an user with the given user ID.
+        /// Returns an user with the given user ID.
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public UserCreateEditViewModel getUsernameByUserID()
+        public UserCreateEditViewModel getUserByUserID()
         {
-            
-            var currentUser = HttpContext.Current.User.Identity.GetUserId();
-            int x = int.Parse(currentUser);
-            var user = (from n in _db.Users
-                        where n.userID == x
-                        select n).SingleOrDefault();
-
             var currUserName = HttpContext.Current.User.Identity.GetUserName();
 
             var u = (from n in _db.Users
                      where n.email == currUserName
                      select n).SingleOrDefault();
-
-
-            var viewModel = new UserCreateEditViewModel
-            {
-                username = user.username,
-                email = user.email,
-                fullName = user.fullName
-            };
-            // return viewModel;
 
             var model = new UserCreateEditViewModel
             {
@@ -62,19 +58,23 @@ namespace Mooshak2.Services
         }
 
         /// <summary>
-        /// Returns the password for an user with the given user ID.
+        /// Returns the username for an user with the given user ID.
         /// </summary>
-        /// <param name="userID"></param>
+        /// <param name="userId"></param>
         /// <returns></returns>
-        public UserCreateEditViewModel getPasswordByUserID(int userID)
+        public UserCreateEditViewModel getUserByEmail(int userID)
         {
-            var password = _db.Users.SingleOrDefault(x => x.userID == userID);
+            var u = (from n in _db.Users
+                     where n.userID == userID
+                     select n).SingleOrDefault();
 
-            var viewModel = new UserCreateEditViewModel
+            var model = new UserCreateEditViewModel
             {
-                password = password.password
+                username = u.username,
+                email = u.email,
+                fullName = u.fullName
             };
-            return viewModel;
+            return model;
         }
 
         /// <summary>
