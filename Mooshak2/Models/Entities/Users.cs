@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mooshak2.Models.Entities
 {
@@ -8,10 +9,12 @@ namespace Mooshak2.Models.Entities
     /// </summary>
     public class Users
     {
-        [Key]
+
         /// <summary>
         /// An unique auto-generated ID number of an user.
         /// </summary>
+        [Key]
+      //  [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int userID { get; set; }
 
         /// <summary>
