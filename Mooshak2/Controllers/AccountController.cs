@@ -215,6 +215,8 @@ namespace Mooshak2.Controllers
                 //HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERE
                 //HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERE
                 var result = await UserManager.CreateAsync(user, model.Password);
+
+
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
