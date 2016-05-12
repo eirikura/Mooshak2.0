@@ -84,13 +84,18 @@ namespace Mooshak2.Controllers
             }
             return View();
         }
+
+        /// <summary>
+        /// Changes user details for the specified user.
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult UserDetails(int userID)
         {
             var user = _service.getUserByID(userID);
             var aspUser = UserManager.FindByEmail(user.username);
             
-
             if (user != null)
             {
                 if(user.role != null)
@@ -106,21 +111,6 @@ namespace Mooshak2.Controllers
             {
                 return View();
             }
-
-            
-        }
-
-        /// <summary>
-        /// Returns the role managament view.
-        /// </summary>
-        /// <param name="userID"></param>
-        /// <returns></returns>
-        public ActionResult ManageRoles()
-        {
-            string[] roles = System.Web.Security.Roles.GetRolesForUser(User.Identity.GetUserId());
-
-            //  var viewModel = _service.getUsernameByUserID(userID);
-            return View();
         }
         
         //
@@ -228,7 +218,6 @@ namespace Mooshak2.Controllers
                 if (result.Succeeded)
                 {
                     result = UserManager.AddToRole(user.Id, model.Role);
-                    
 
                     _service.newUser(model);
 
