@@ -14,13 +14,7 @@ namespace Mooshak2.Models.Entities
         /// An unique auto-generated ID number of an user.
         /// </summary>
         [Key]
-      //  [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int userID { get; set; }
-
-        /// <summary>
-        /// An ID number used to connect an user with a role.
-        /// </summary>
-        public int roleID { get; set; }
 
         /// <summary>
         /// An username the user has and uses in order to log in to the system.

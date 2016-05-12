@@ -95,22 +95,6 @@ namespace Mooshak2.Services
         }
 
         /// <summary>
-        /// Returns the role ID of an user by the specified user ID.
-        /// </summary>
-        /// <param name="userID"></param>
-        /// <returns></returns>
-        public UserCreateEditViewModel getRoleIDByUserID(int userID)
-        {
-            var roleID = _db.Users.SingleOrDefault(x => x.userID == userID);
-
-            var viewModel = new UserCreateEditViewModel
-            {
-                roleID = roleID.roleID
-            };
-            return viewModel;
-        }
-
-        /// <summary>
         /// Returns an users ID by the given username
         /// </summary>
         /// <param name="username"></param>
