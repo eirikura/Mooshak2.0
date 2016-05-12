@@ -30,6 +30,21 @@
         </div>
     </div>
     <div class="form-group">
+        @Html.LabelFor(m => m.Role, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            <select>
+                <option value="">Choose a Role</option>
+                <option value="Admin">Admin</option>
+                <option value="Teacher">Teacher</option>
+                <option value="Student">Student</option>
+            </select>
+        </div>
+    </div>
+
+    @Html.DropDownList("RoleName", (IEnumerable <SelectListItem>) ViewBag.Roles, "Select ...");
+
+    
+    <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Register" />
         </div>

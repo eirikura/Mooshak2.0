@@ -208,14 +208,13 @@ namespace Mooshak2.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                //HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERE
-                //HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERE
-                //HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERE
-                //HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERE
-                //HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERE
+               
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
                 var result = await UserManager.CreateAsync(user, model.Password);
 
+                ViewBag.Roles =
+
+                UserManager.AddToRole(model.Email, model.Role);
 
                 if (result.Succeeded)
                 {

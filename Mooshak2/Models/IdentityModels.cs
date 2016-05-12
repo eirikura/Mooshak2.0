@@ -28,6 +28,7 @@ namespace Mooshak2.Models
         public DbSet<Submissions>       Submissions { get; set; }
         public DbSet<Users>             Users { get; set; }
         public DbSet<UsersAndCourses>   UsersAndCourses { get; set; }
+        public DbSet<Roles>             Roles { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
