@@ -73,9 +73,19 @@ namespace Mooshak2.Services
                 username = u.username,
                 email = u.email,
                 fullName = u.fullName,
-                phoneNumber = u.phoneNumber
+                phoneNumber = u.phoneNumber,
+                role = u.role
             };
             return model;
+        }
+
+        public Users getUserByID(int userID)
+        {
+            var user = (from n in _db.Users
+                        where n.userID == userID
+                        select n).SingleOrDefault();
+
+            return user;
         }
 
 
@@ -111,6 +121,10 @@ namespace Mooshak2.Services
             return viewModel;
         }
 
+        /// <summary>
+        /// Adds a new user to the user table
+        /// </summary>
+        /// <param name="model"></param>
         public void newUser(RegisterViewModel model)
         {
             var newUser = new Users();
@@ -119,8 +133,28 @@ namespace Mooshak2.Services
             newUser.username = model.Email;
             newUser.fullName = model.FullName;
             newUser.phoneNumber = model.PhoneNumber;
+            newUser.role = model.Role;
 
             _db.Users.Add(newUser);
+            
+            _db.SaveChanges();
+        }
+
+        /// <summary>
+        /// Edits a user in a table
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="userID"></param>
+        public void editUser(Users model, int userID)
+        {
+            var user = (from n in _db.Users
+                     where n.userID == userID
+                     select n).SingleOrDefault();
+
+            user.email = model.email;
+            user.fullName = model.fullName;
+            user.phoneNumber = model.phoneNumber;
+
             _db.SaveChanges();
         }
     }

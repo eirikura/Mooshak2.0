@@ -36,5 +36,10 @@ namespace Mooshak2.Models.Entities
         /// </summary>
         public int phoneNumber { get; set; }
 
+        /// <summary>
+        /// This is the role user is currently assigned to.
+        /// </summary>
+        public string role { get; set; }
+
     }
 }

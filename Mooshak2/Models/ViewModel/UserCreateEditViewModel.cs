@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -20,21 +21,31 @@ namespace Mooshak2.Models.ViewModel
         /// <summary>
         /// The users username.
         /// </summary>
+        [Display(Name = "Username")]
         public string username { get; set; }
 
         /// <summary>
         /// The users email address.
         /// </summary>
+        [Display(Name = "Email")]
         public string email { get; set; }
 
         /// <summary>
         /// The users full name.
         /// </summary>
+        [Display(Name = "Full Name")]
         public string fullName { get; set; }
 
         /// <summary>
         /// The users phone number.
         /// </summary>
+        [Display(Name = "Phone Number")]
         public int phoneNumber { get; set; }
+
+        /// <summary>
+        /// This is the role user is currently assigned to.
+        /// </summary>
+        [Display(Name = "Role")]
+        public string role { get; set; }
     }
 }

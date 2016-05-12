@@ -40,6 +40,14 @@
             @Html.DisplayFor(model => model.phoneNumber)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.role)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.role)
+        </dd>
+
     </dl>
 </div>
 
@@ -80,6 +88,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
+                @Html.ActionLink("Change user role", "Index", null, new { @class="btn btn-default" })
             </div>
         </div>
     </div>
