@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.WebPages.Html;
 
 namespace Mooshak2.Models
 {
@@ -60,6 +61,7 @@ namespace Mooshak2.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
     }
 
     public class RegisterViewModel
@@ -79,6 +81,18 @@ namespace Mooshak2.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Full Name")]
+        public string FullName { get; set; }
+
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Phone Number")]
+        public int PhoneNumber { get; set; }
+
+        [Display(Name = "User Role")]
+        public string Role { get; set; }
     }
 
     public class ResetPasswordViewModel

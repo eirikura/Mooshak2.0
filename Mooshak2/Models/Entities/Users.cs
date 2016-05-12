@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mooshak2.Models.Entities
 {
@@ -8,10 +9,12 @@ namespace Mooshak2.Models.Entities
     /// </summary>
     public class Users
     {
-        [Key]
+
         /// <summary>
         /// An unique auto-generated ID number of an user.
         /// </summary>
+        [Key]
+      //  [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int userID { get; set; }
 
         /// <summary>
@@ -23,11 +26,6 @@ namespace Mooshak2.Models.Entities
         /// An username the user has and uses in order to log in to the system.
         /// </summary>
         public string username { get; set; }
-
-        /// <summary>
-        /// An password the user has and uses in order to log in to the system.
-        /// </summary>
-        public string password { get; set; }
 
         /// <summary>
         /// This is the email of the user.
@@ -44,9 +42,5 @@ namespace Mooshak2.Models.Entities
         /// </summary>
         public int phoneNumber { get; set; }
 
-        /// <summary>
-        /// This is the url path to the profile picture of the user.
-        /// </summary>
-        public string userPicture { get; set; }
     }
 }

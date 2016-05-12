@@ -19,10 +19,5 @@
         /// </summary>
         public string name { get; set; }
 
-        /// <summary>
-        /// A short description of a role, like what rights does this role have within
-        /// the system and what an user of this type of role is able to do.
-        /// </summary>
-        public string description { get; set; }
-    }
+   }
 }

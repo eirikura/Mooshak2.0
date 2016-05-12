@@ -1,6 +1,6 @@
 ﻿@model Mooshak2.Models.RegisterViewModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Create a new user account";
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -8,8 +8,6 @@
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
@@ -27,6 +25,43 @@
         @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.FullName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Role, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @{
+                List<SelectListItem> roleList = new List<SelectListItem>();
+                roleList.Add(new SelectListItem
+                {
+                    Text = "Admin",
+                    Value = "Admin",
+                    Selected = true
+                });
+                roleList.Add(new SelectListItem
+                {
+                    Text = "Teacher",
+                    Value = "Teacher",
+                });
+                roleList.Add(new SelectListItem
+                {
+                    Text = "Student",
+                    Value = "Student"
+                });
+            }
+            @Html.DropDownListFor(m => m.Role, roleList, "-- Select Status --")            
         </div>
     </div>
     <div class="form-group">

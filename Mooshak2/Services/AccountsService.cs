@@ -125,5 +125,18 @@ namespace Mooshak2.Services
             };
             return viewModel;
         }
+
+        public void newUser(RegisterViewModel model)
+        {
+            var newUser = new Users();
+
+            newUser.email = model.Email;
+            newUser.username = model.Email;
+            newUser.fullName = model.FullName;
+            newUser.phoneNumber = model.PhoneNumber;
+
+            _db.Users.Add(newUser);
+            _db.SaveChanges();
+        }
     }
 }
