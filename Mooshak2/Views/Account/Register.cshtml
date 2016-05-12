@@ -42,6 +42,10 @@
     </div>
 
     <select name="selectRoleName">
+               var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
+
+                var allRoles = roleManager.Roles.ToList();
+
         @foreach (var r in Roles.GetAllRoles())
         {
             <option>@r</option>
