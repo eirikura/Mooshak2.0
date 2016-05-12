@@ -35,6 +35,6 @@ namespace Mooshak2.Models.Entities
         /// <summary>
         /// Courses have many users.
         /// </summary>
-        public virtual ICollection<Users> userList { get; set; }
+     //   public virtual ICollection<Users> userList { get; set; }
     }
 }

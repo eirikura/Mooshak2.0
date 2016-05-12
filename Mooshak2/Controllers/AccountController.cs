@@ -80,15 +80,6 @@ namespace Mooshak2.Controllers
         }
 
         /// <summary>
-        /// Returns the user creation view.
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult CreateUser()
-        {
-            return View();
-        }
-
-        /// <summary>
         /// Returns the user editing view for the specified user.
         /// </summary>
         /// <param name="userID"></param>
@@ -215,7 +206,7 @@ namespace Mooshak2.Controllers
 
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     result = UserManager.AddToRole(user.Id, model.Role);
 
                     _service.newUser(model);
