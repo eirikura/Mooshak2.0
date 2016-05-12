@@ -219,6 +219,9 @@
     <Compile Include="Models\ViewModel\AssignmentCreateEditViewModel.cs" />
     <Compile Include="Models\ViewModel\AssignmentViewModel.cs" />
     <Compile Include="Models\ViewModel\CourseCreateEditViewModel.cs" />
+    <Compile Include="Models\ViewModel\CourseCreateViewModel.cs" />
+    <Compile Include="Models\ViewModel\CourseEditViewModel.cs" />
+    <Compile Include="Models\ViewModel\CourseViewModel.cs" />
     <Compile Include="Models\ViewModel\GradeViewModel.cs" />
     <Compile Include="Models\ViewModel\LogInViewModel.cs" />
     <Compile Include="Models\ViewModel\StudentViewModel.cs" />
