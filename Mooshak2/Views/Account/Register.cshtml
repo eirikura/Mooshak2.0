@@ -32,26 +32,28 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Role, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            <select>
-                <option value="">Choose a Role</option>
-                <option value="Admin">Admin</option>
-                <option value="Teacher">Teacher</option>
-                <option value="Student">Student</option>
-            </select>
+            @{
+                List<SelectListItem> listItems = new List<SelectListItem>();
+                listItems.Add(new SelectListItem
+                {
+                    Text = "Admin",
+                    Value = "Admin",
+                    Selected = true
+                });
+                listItems.Add(new SelectListItem
+                {
+                    Text = "Teacher",
+                    Value = "Teacher",
+                });
+                listItems.Add(new SelectListItem
+                {
+                    Text = "Student",
+                    Value = "Student"
+                });
+            }
+            @Html.DropDownListFor(m => m.Role, listItems, "-- Select Status --")            
         </div>
     </div>
-
-    <select name="selectRoleName">
-               var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
-
-                var allRoles = roleManager.Roles.ToList();
-
-        @foreach (var r in Roles.GetAllRoles())
-        {
-            <option>@r</option>
-        }
-    </select>
-
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">

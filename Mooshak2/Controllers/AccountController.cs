@@ -213,17 +213,11 @@ namespace Mooshak2.Controllers
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
                 var result = await UserManager.CreateAsync(user, model.Password);
 
-                var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
-
-                var allRoles = roleManager.Roles.ToList();
-
-                // UserManager.AddToRole(model.Email, model.Role);
-
-
-
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
+                    result = UserManager.AddToRole(user.Id, model.Role);
 
                     _service.newUser(model);
 

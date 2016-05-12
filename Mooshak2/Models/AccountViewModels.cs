@@ -61,6 +61,7 @@ namespace Mooshak2.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
     }
 
     public class RegisterViewModel
@@ -81,8 +82,7 @@ namespace Mooshak2.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
-        [Display(Name = "Role")]
+        [Display(Name = "User Role")]
         public string Role { get; set; }
 
     }

@@ -132,7 +132,6 @@ namespace Mooshak2.Services
 
             newUser.email = model.Email;
             newUser.username = model.Email;
-            newUser.password = model.Password;
 
             _db.Users.Add(newUser);
             _db.SaveChanges();

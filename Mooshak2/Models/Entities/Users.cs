@@ -28,11 +28,6 @@ namespace Mooshak2.Models.Entities
         public string username { get; set; }
 
         /// <summary>
-        /// An password the user has and uses in order to log in to the system.
-        /// </summary>
-        public string password { get; set; }
-
-        /// <summary>
         /// This is the email of the user.
         /// </summary>
         public string email { get; set; }
@@ -47,9 +42,5 @@ namespace Mooshak2.Models.Entities
         /// </summary>
         public int phoneNumber { get; set; }
 
-        /// <summary>
-        /// This is the url path to the profile picture of the user.
-        /// </summary>
-        public string userPicture { get; set; }
     }
 }
