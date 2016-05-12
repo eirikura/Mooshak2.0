@@ -87,34 +87,36 @@
         </div>
 
         <div class="form-group">
-            @{
-                List<SelectListItem> roleList = new List<SelectListItem>();
-                roleList.Add(new SelectListItem
-                {
-                    Text = "Admin",
-                    Value = "Admin",
-                    Selected = true
-                });
-                roleList.Add(new SelectListItem
-                {
-                    Text = "Teacher",
-                    Value = "Teacher",
-                });
-                roleList.Add(new SelectListItem
-                {
-                    Text = "Student",
-                    Value = "Student"
-                });
-            }
-            @Html.DropDownListFor(m => m.role, roleList, "-- Select Status --")       
+            @Html.LabelFor(m => m.role, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @{
+                    List<SelectListItem> roleList = new List<SelectListItem>();
+                    roleList.Add(new SelectListItem
+                    {
+                        Text = "Admin",
+                        Value = "Admin",
+                        Selected = true
+                    });
+                    roleList.Add(new SelectListItem
+                    {
+                        Text = "Teacher",
+                        Value = "Teacher",
+                    });
+                    roleList.Add(new SelectListItem
+                    {
+                        Text = "Student",
+                        Value = "Student"
+                    });
+                }
+                @Html.DropDownListFor(m => m.role, roleList)
             </div>
         </div>
-
         <div class="form-group">
             <div clss="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" class="btn btn-default" value="Save" />
             </div>
         </div>
+    </div>
 }
 
 <p>

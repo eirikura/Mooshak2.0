@@ -82,16 +82,23 @@ namespace Mooshak2.Controllers
                 var viewModel = _service.getUserByEmail(ID);
                 return View(viewModel);
             }
-            return HttpNotFound();
+            return View();
         }
         [HttpPost]
         public ActionResult UserDetails(int userID)
         {
             var user = _service.getUserByID(userID);
+            var aspUser = UserManager.FindByEmail(user.username);
+            
 
             if (user != null)
             {
+                if(user.role != null)
+                {
+                    UserManager.RemoveFromRole(aspUser.Id, user.role);
+                }
                 UpdateModel(user);
+                UserManager.AddToRole(aspUser.Id, user.role);
                 _service.editUser(user, userID);
                 return RedirectToAction("Index");
             }
@@ -215,32 +222,13 @@ namespace Mooshak2.Controllers
         {
             if (ModelState.IsValid)
             {
-                List<SelectListItem> roleList = new List<SelectListItem>();
-                roleList.Add(new SelectListItem
-                {
-                    Text = "Admin",
-                    Value = "Admin",
-                    Selected = true
-                });
-                roleList.Add(new SelectListItem
-                {
-                    Text = "Teacher",
-                    Value = "Teacher",
-                });
-                roleList.Add(new SelectListItem
-                {
-                    Text = "Student",
-                    Value = "Student"
-                });
-
-                ViewData["RoleList"] = roleList;
-
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
                 var result = await UserManager.CreateAsync(user, model.Password);
-
+                
                 if (result.Succeeded)
                 {
                     result = UserManager.AddToRole(user.Id, model.Role);
+                    
 
                     _service.newUser(model);
 
