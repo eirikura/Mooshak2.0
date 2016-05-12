@@ -72,7 +72,8 @@ namespace Mooshak2.Services
             {
                 username = u.username,
                 email = u.email,
-                fullName = u.fullName
+                fullName = u.fullName,
+                phoneNumber = u.phoneNumber
             };
             return model;
         }
