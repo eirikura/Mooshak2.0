@@ -154,6 +154,7 @@ namespace Mooshak2.Services
             user.email = model.email;
             user.fullName = model.fullName;
             user.phoneNumber = model.phoneNumber;
+            user.role = model.role;
 
             _db.SaveChanges();
         }
