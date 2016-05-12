@@ -93,6 +93,9 @@ namespace Mooshak2.Models
 
         [Display(Name = "User Role")]
         public string Role { get; set; }
+
+
+
     }
 
     public class ResetPasswordViewModel

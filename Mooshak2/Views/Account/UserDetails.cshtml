@@ -4,42 +4,16 @@
     ViewBag.Title = "UserDetails";
 }
 
-<h2>UserDetails</h2>
+<h2>Users Details</h2>
 
 <div>
-    <h4>Users</h4>
-    <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.userID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.userID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.roleID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.roleID)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.username)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.username)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.password)
         </dd>
 
         <dt>
@@ -67,11 +41,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.userPicture)
+            @Html.DisplayNameFor(model => model.role)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.userPicture)
+            @Html.DisplayFor(model => model.r)
         </dd>
 
     </dl>
@@ -83,18 +57,10 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Student</h4>
+        <h4>Change details:</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.userID)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -105,18 +71,52 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.fullName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fullName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.fullName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.phoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.phoneNumber, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.phoneNumber, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        <div class="form-group">
+            @{
+                List<SelectListItem> roleList = new List<SelectListItem>();
+                roleList.Add(new SelectListItem
+                {
+                    Text = "Admin",
+                    Value = "Admin",
+                    Selected = true
+                });
+                roleList.Add(new SelectListItem
+                {
+                    Text = "Teacher",
+                    Value = "Teacher",
+                });
+                roleList.Add(new SelectListItem
+                {
+                    Text = "Student",
+                    Value = "Student"
+                });
+            }
+            @Html.DropDownListFor(m => m.Role, roleList, "-- Select Status --")       
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
+
 }
 
 <p>

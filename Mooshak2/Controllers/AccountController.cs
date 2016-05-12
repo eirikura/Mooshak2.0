@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using Mooshak2.Models;
 using Mooshak2.Services;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 
 namespace Mooshak2.Controllers
 {
@@ -71,23 +72,35 @@ namespace Mooshak2.Controllers
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
+        [HttpGet]
         public ActionResult UserDetails(int? userID)
         {
-            int ID = userID.Value;
+            if(userID != null)
+            {
+                int ID = userID.Value;
 
-            var viewModel = _service.getUserByEmail(ID);
-            return View(viewModel);
+                var viewModel = _service.getUserByEmail(ID);
+                return View(viewModel);
+            }
+            return HttpNotFound();
         }
-
-        /// <summary>
-        /// Returns the user editing view for the specified user.
-        /// </summary>
-        /// <param name="userID"></param>
-        /// <returns></returns>
-        public ActionResult EditUser()
+        [HttpPost]
+        public ActionResult UserDetails(int userID)
         {
-        //    var viewModel = _service.getUsernameByUserID(userID);
-            return View();
+            var user = _service.getUserByID(userID);
+
+            if (user != null)
+            {
+                UpdateModel(user);
+                _service.editUser(user, userID);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+
+            
         }
 
         /// <summary>
@@ -97,7 +110,9 @@ namespace Mooshak2.Controllers
         /// <returns></returns>
         public ActionResult ManageRoles()
         {
-          //  var viewModel = _service.getUsernameByUserID(userID);
+            string[] roles = System.Web.Security.Roles.GetRolesForUser(User.Identity.GetUserId());
+
+            //  var viewModel = _service.getUsernameByUserID(userID);
             return View();
         }
         
@@ -200,13 +215,31 @@ namespace Mooshak2.Controllers
         {
             if (ModelState.IsValid)
             {
-               
+                List<SelectListItem> roleList = new List<SelectListItem>();
+                roleList.Add(new SelectListItem
+                {
+                    Text = "Admin",
+                    Value = "Admin",
+                    Selected = true
+                });
+                roleList.Add(new SelectListItem
+                {
+                    Text = "Teacher",
+                    Value = "Teacher",
+                });
+                roleList.Add(new SelectListItem
+                {
+                    Text = "Student",
+                    Value = "Student"
+                });
+
+                ViewData["RoleList"] = roleList;
+
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
                 var result = await UserManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
                 {
-                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     result = UserManager.AddToRole(user.Id, model.Role);
 
                     _service.newUser(model);
