@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using Mooshak2.Models;
 using Mooshak2.Services;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 
 namespace Mooshak2.Controllers
 {
@@ -214,13 +215,31 @@ namespace Mooshak2.Controllers
         {
             if (ModelState.IsValid)
             {
-               
+                List<SelectListItem> roleList = new List<SelectListItem>();
+                roleList.Add(new SelectListItem
+                {
+                    Text = "Admin",
+                    Value = "Admin",
+                    Selected = true
+                });
+                roleList.Add(new SelectListItem
+                {
+                    Text = "Teacher",
+                    Value = "Teacher",
+                });
+                roleList.Add(new SelectListItem
+                {
+                    Text = "Student",
+                    Value = "Student"
+                });
+
+                ViewData["RoleList"] = roleList;
+
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
                 var result = await UserManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
                 {
-                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     result = UserManager.AddToRole(user.Id, model.Role);
 
                     _service.newUser(model);

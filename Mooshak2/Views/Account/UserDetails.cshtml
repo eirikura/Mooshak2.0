@@ -45,7 +45,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.role)
+            @Html.DisplayFor(model => model.r)
         </dd>
 
     </dl>
@@ -85,13 +85,38 @@
                 @Html.ValidationMessageFor(model => model.phoneNumber, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        <div class="form-group">
+            @{
+                List<SelectListItem> roleList = new List<SelectListItem>();
+                roleList.Add(new SelectListItem
+                {
+                    Text = "Admin",
+                    Value = "Admin",
+                    Selected = true
+                });
+                roleList.Add(new SelectListItem
+                {
+                    Text = "Teacher",
+                    Value = "Teacher",
+                });
+                roleList.Add(new SelectListItem
+                {
+                    Text = "Student",
+                    Value = "Student"
+                });
+            }
+            @Html.DropDownListFor(m => m.Role, roleList, "-- Select Status --")       
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
-                @Html.ActionLink("Change user role", "Index", null, new { @class="btn btn-default" })
             </div>
         </div>
     </div>
+
 }
 
 <p>
