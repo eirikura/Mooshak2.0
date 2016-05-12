@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Mooshak2.Models;
 using Mooshak2.Services;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Mooshak2.Controllers
 {
@@ -212,9 +213,13 @@ namespace Mooshak2.Controllers
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
                 var result = await UserManager.CreateAsync(user, model.Password);
 
-                ViewBag.Roles =
+                var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
 
-                UserManager.AddToRole(model.Email, model.Role);
+                var allRoles = roleManager.Roles.ToList();
+
+                // UserManager.AddToRole(model.Email, model.Role);
+
+
 
                 if (result.Succeeded)
                 {

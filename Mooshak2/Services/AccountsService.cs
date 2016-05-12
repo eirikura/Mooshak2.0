@@ -137,13 +137,5 @@ namespace Mooshak2.Services
             _db.Users.Add(newUser);
             _db.SaveChanges();
         }
-
-        public List<Roles> getAllRoles()
-        {
-            List<Roles> roles = (from u in _db.Roles
-                                 select u).ToList();
-
-            return roles;
-        }
     }
 }

@@ -41,9 +41,14 @@
         </div>
     </div>
 
-    @Html.DropDownList("RoleName", (IEnumerable <SelectListItem>) ViewBag.Roles, "Select ...");
+    <select name="selectRoleName">
+        @foreach (var r in Roles.GetAllRoles())
+        {
+            <option>@r</option>
+        }
+    </select>
 
-    
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Register" />
