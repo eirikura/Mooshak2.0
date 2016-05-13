@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace Mooshak2.Models.ViewModel
 {
     public class SubmissionViewModel
     {
+        [Key]
         /// <summary>
         /// An unique auto-generated ID number of a submission.
         /// </summary>

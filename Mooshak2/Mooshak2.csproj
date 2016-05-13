@@ -304,7 +304,6 @@
     <Content Include="Views\Account\AdminView.cshtml" />
     <Content Include="Views\Courses\CreateCourse.cshtml" />
     <Content Include="Views\Courses\CourseDetails.cshtml" />
-    <Content Include="Views\Account\View.cshtml" />
     <Content Include="Views\Account\StudentView.cshtml" />
     <Content Include="Views\Account\TeacherView.cshtml" />
     <Content Include="Views\Courses\AssignUsers.cshtml" />
@@ -342,16 +341,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59416</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:59416/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

@@ -132,7 +132,7 @@ namespace Mooshak2.Services
         public ReviewViewModel getReviewBySubmission(int submissionID)
         {
             var submissionReviewQuery = (from submission in _db.Submissions
-                                         where submission.submissionsID == submissionID
+                                         where submission.submissionID == submissionID
                                          join review in _db.Reviews
                                          on submission.reviewID equals review.reviewID
                                          select review).SingleOrDefault();
