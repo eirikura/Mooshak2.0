@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -28,7 +29,10 @@ namespace Mooshak2.Models.ViewModel
         /// </summary>
         public string courseName { get; set; }
 
+        [Display(Name = "Select a course")]
         public string selectedCourse { get; set; }
+
+
         public List<SelectListItem> Courses { get; set; }
     }
 }

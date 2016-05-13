@@ -94,30 +94,40 @@ namespace Mooshak2.Controllers
         {
             int userID = userId.Value;
 
-            List<SelectListItem> listCourses = new List<SelectListItem>();
+            var courses = _service.getCoursesUserIsNotIn(userID);
 
-            UsersAndCoursesViewModel viewModel = new UsersAndCoursesViewModel()
+            var n = new List<SelectListItem>();
+
+            foreach(var course in courses)
             {
-                Courses = listCourses,
-            };
+                n.Add(new SelectListItem
+                {
+                    Text = course.courseName,
+                    Value = course.courseID.ToString()
+                });
 
+            }
+
+            var viewModel = new UsersAndCoursesViewModel();
+
+            viewModel.Courses = n;
+            
             return View(viewModel);
         }
 
         [HttpPost]
-        public ActionResult AssignUsers(ICollection<string> selectedUsers)
-        {/*
-            if (selectedCities == null)
-            {
-                return “No cities are selected”;
-            }
-            else
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(“You selected – “ +string.Join(“,”, selectedCities));
-                return sb.ToString();
-            }*/
-            return null;
+        public ActionResult AssignUsers(int userId,UsersAndCoursesViewModel theModel)
+        {
+            var viewModel = new UsersAndCoursesViewModel();
+
+            viewModel.selectedCourse = theModel.selectedCourse;
+
+            int theChoice = Int32.Parse(viewModel.selectedCourse);
+
+
+            _service.addNewCourseAndUserConnection(theModel, theChoice);
+            return RedirectToAction("Index");
+
         }
 
 
