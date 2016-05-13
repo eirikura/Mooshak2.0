@@ -79,7 +79,7 @@ namespace Mooshak2.Controllers
             {
                 int ID = userID.Value;
 
-                var viewModel = _service.getUserByID(ID);
+                var viewModel = _service.getUserByEmail(ID);
                 return View(viewModel);
             }
             return View();
