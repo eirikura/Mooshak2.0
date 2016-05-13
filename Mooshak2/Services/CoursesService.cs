@@ -43,6 +43,28 @@ namespace Mooshak2.Services
             return courseModel;
         }
 
+
+        /// <summary>
+        /// This functions returns a course by its ID.
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
+        public CourseEditViewModel getEditCourseByCourseID(int courseID)
+        {
+            var courseQuery = (from course in _db.Courses
+                               where course.courseID == courseID
+                               select course).SingleOrDefault();
+
+            var courseModel = new CourseEditViewModel()
+            {
+                courseID = courseQuery.courseID,
+                courseName = courseQuery.name,
+                courseDescription = courseQuery.description
+            };
+
+            return courseModel;
+        }
+
         /// <summary>
         /// This function returns a list of courses that a user is part of.
         /// </summary>
