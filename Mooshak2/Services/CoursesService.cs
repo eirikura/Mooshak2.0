@@ -15,11 +15,11 @@ namespace Mooshak2.Services
     public class CoursesService
     {
 
-        private ApplicationDbContext db;
+        private ApplicationDbContext _db;
 
         public CoursesService()
         {
-            db = new ApplicationDbContext();
+            _db = new ApplicationDbContext();
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace Mooshak2.Services
         /// <returns>A course is returned with id, name and description.</returns>
         public CourseViewModel getCourseByCourseID(int courseID)
         {
-            var courseQuery = (from course in db.Courses
+            var courseQuery = (from course in _db.Courses
                                where course.courseID == courseID
                                select course).SingleOrDefault();
 
@@ -50,9 +50,9 @@ namespace Mooshak2.Services
         /// <returns>A list of courses.</returns>
         public ICollection<CourseViewModel> getCoursesByUser(int userID)
         {
-            var userCoursesQuery = (from userCourses in db.UsersAndCourses
+            var userCoursesQuery = (from userCourses in _db.UsersAndCourses
                                     where userCourses.userID == userID
-                                    join courses in db.Courses 
+                                    join courses in _db.Courses 
                                     on userCourses.courseID equals courses.courseID
                                     select courses).ToList();
 
@@ -77,7 +77,7 @@ namespace Mooshak2.Services
         /// <returns>A list of courses.</returns>
         public ICollection<CourseViewModel> getAllCourses()
         {
-            var coursesQuery = (from course in db.Courses
+            var coursesQuery = (from course in _db.Courses
                                 select course).ToList();
 
             var coursesModel = new List<CourseViewModel>();
@@ -109,11 +109,11 @@ namespace Mooshak2.Services
                 description = newCourse.courseDescription
             };
 
-            db.Courses.Add(addCourse);
+            _db.Courses.Add(addCourse);
 
             try
             {
-                db.SaveChanges();
+                _db.SaveChanges();
                 successfullyAdded = true;
             }
             catch
@@ -138,11 +138,11 @@ namespace Mooshak2.Services
                 courseID = connectionToAdd.courseID
             };
 
-            db.UsersAndCourses.Add(addConnection);
+            _db.UsersAndCourses.Add(addConnection);
 
             try
             {
-                db.SaveChanges();
+                _db.SaveChanges();
                 successfullyAdded = true;
             }
             catch
@@ -165,7 +165,7 @@ namespace Mooshak2.Services
 
             try
             {
-                var query = (from course in db.Courses
+                var query = (from course in _db.Courses
                              where course.courseID == courseToChange.courseID
                              select course).SingleOrDefault();
 
@@ -173,7 +173,7 @@ namespace Mooshak2.Services
                 {
                     query.name = courseToChange.courseName;
                     query.description = courseToChange.courseDescription;
-                    db.SaveChanges();
+                    _db.SaveChanges();
                     successfullyEdited = true;
                 }
             }

@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Mooshak2.Models.ViewModel;
 
 namespace Mooshak2.Controllers
 {
     public class CoursesController : Controller
     {
         private CoursesService _service = new CoursesService();
+        
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +19,7 @@ namespace Mooshak2.Controllers
         public ActionResult Index()
         {
             var viewModel = _service.getAllCourses();
+
             return View(viewModel);
         }
 
@@ -44,6 +47,19 @@ namespace Mooshak2.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="newCourse"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult CreateCourse(CourseCreateViewModel newCourse)
+        {
+            _service.addNewCourse(newCourse);
+
+            return RedirectToAction("Index");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="courseID"></param>
         /// <returns></returns>
         public ActionResult EditCourse(int courseID)
@@ -56,6 +72,19 @@ namespace Mooshak2.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="editCourse"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult EditCourse(CourseEditViewModel editCourse)
+        {
+            _service.updateCourseInfo(editCourse);
+
+            return RedirectToAction("Index");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="courseID"></param>
         /// <returns></returns>
         public ActionResult AssignUsers(int courseID)
@@ -63,7 +92,5 @@ namespace Mooshak2.Controllers
             int id = courseID;
             return View(id);
         }
-           
-
     }
 }
