@@ -209,27 +209,26 @@ namespace Mooshak2.Services
             return successfullyEdited;
         }
 
-        public List<SelectListItem> getAllCoursesForAssigning()
+        public UsersAndCoursesViewModel getAssigningCourseByCourseID(int courseID)
         {
+            var courseQuery = (from course in _db.Courses
+                               where course.courseID == courseID
+                               select course).SingleOrDefault();
 
-            List<SelectListItem> listSelectListItems = new List<SelectListItem>();
-
-            foreach (Courses course in _db.Courses)
+            var courseModel = new UsersAndCoursesViewModel()
             {
-                SelectListItem selectList = new SelectListItem()
-                {
-                    Text = course.name,
-                    Value = course.courseID.ToString()
-                };
-                listSelectListItems.Add(selectList);
-            }
-            return listSelectListItems;
+                courseID = courseQuery.courseID,
+                courseName = courseQuery.name
+            };
+
+            return courseModel;
         }
 
-        public List<SelectListItem> getAllUsersForAssigning()
+        public List<SelectListItem> getAllUsersForAssigning(UsersAndCoursesViewModel course)
         {
-
             List<SelectListItem> listSelectListItems = new List<SelectListItem>();
+
+
 
             foreach (Users user in _db.Users)
             {
@@ -242,7 +241,5 @@ namespace Mooshak2.Services
             }
             return listSelectListItems;
         }
-
-
     }
 }
