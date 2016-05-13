@@ -23,7 +23,7 @@
                         @Html.ActionLink(item.courseName,"UserDetails", new { userID = item.courseID })
                     </td>
                     <td>
-                        @Html.Encode(item.courseDescription)
+                        @item.courseDescription
                     </td>
                 </tr>
             }
