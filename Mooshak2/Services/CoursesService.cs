@@ -219,7 +219,7 @@ namespace Mooshak2.Services
                 SelectListItem selectList = new SelectListItem()
                 {
                     Text = course.name,
-                    Value = course.name
+                    Value = course.courseID.ToString()
                 };
                 listSelectListItems.Add(selectList);
             }
@@ -237,7 +237,7 @@ namespace Mooshak2.Services
                 SelectListItem selectList = new SelectListItem()
                 {
                     Text = user.username,
-                    Value = user.username
+                    Value = user.userID.ToString()
                 };
                 listSelectListItems.Add(selectList);
             }
