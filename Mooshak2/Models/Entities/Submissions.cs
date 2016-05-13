@@ -12,7 +12,7 @@ namespace Mooshak2.Models.Entities
         /// <summary>
         /// An unique auto-generated ID number of a submission.
         /// </summary>
-        public int submissionsID { get; set; }
+        public int submissionID { get; set; }
 
         /// <summary>
         /// An ID number of an user used to connect an user to a submission.
