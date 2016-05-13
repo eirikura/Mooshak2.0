@@ -89,10 +89,23 @@ namespace Mooshak2.Controllers
         /// </summary>
         /// <param name="courseID"></param>
         /// <returns></returns>
-        public ActionResult AssignUsers(int courseID)
+        public ActionResult AssignUsers()
         {
-            int id = courseID;
-            return View(id);
+
+            List<SelectListItem> listCourses = new List<SelectListItem>();
+
+            List<SelectListItem> listUsers = new List<SelectListItem>();
+
+            listCourses = _service.getAllCoursesForAssigning();
+            listUsers = _service.getAllUsersForAssigning();
+
+            UsersAndCoursesViewModel viewModel = new UsersAndCoursesViewModel()
+            {
+                Courses = listCourses,
+                Users = listUsers
+            };
+
+            return View(viewModel);
         }
     }
 }

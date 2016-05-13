@@ -299,6 +299,7 @@
     <Content Include="Views\Courses\CourseDetails.cshtml" />
     <Content Include="Views\Account\StudentView.cshtml" />
     <Content Include="Views\Account\View.cshtml" />
+    <Content Include="Views\Courses\AssignUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Mooshak2.Models;
+using System.Web.Mvc;
+using Mooshak2.Models.Entities;
 
 namespace Mooshak2.Services
 {
@@ -206,5 +208,43 @@ namespace Mooshak2.Services
 
             return successfullyEdited;
         }
+
+        public List<SelectListItem> getAllCoursesForAssigning()
+        {
+
+            List<SelectListItem> listSelectListItems = new List<SelectListItem>();
+
+            foreach (Courses course in _db.Courses)
+            {
+                SelectListItem selectList = new SelectListItem()
+                {
+                    Text = course.name,
+                    Value = course.name
+                };
+                listSelectListItems.Add(selectList);
+            }
+
+            return listSelectListItems;
+        }
+
+        public List<SelectListItem> getAllUsersForAssigning()
+        {
+
+            List<SelectListItem> listSelectListItems = new List<SelectListItem>();
+
+            foreach (Users user in _db.Users)
+            {
+                SelectListItem selectList = new SelectListItem()
+                {
+                    Text = user.username,
+                    Value = user.username
+                };
+                listSelectListItems.Add(selectList);
+            }
+
+            return listSelectListItems;
+        }
+
+
     }
 }
