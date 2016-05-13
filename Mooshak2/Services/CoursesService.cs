@@ -224,18 +224,16 @@ namespace Mooshak2.Services
             return courseModel;
         }
 
-        public List<SelectListItem> getAllUsersForAssigning(UsersAndCoursesViewModel course)
+        public List<SelectListItem> getAllCoursesForAssigning()
         {
             List<SelectListItem> listSelectListItems = new List<SelectListItem>();
 
-
-
-            foreach (Users user in _db.Users)
+            foreach (Courses course in _db.Courses)
             {
                 SelectListItem selectList = new SelectListItem()
                 {
-                    Text = user.username,
-                    Value = user.userID.ToString()
+                    Text = course.name,
+                    Value = course.courseID.ToString()
                 };
                 listSelectListItems.Add(selectList);
             }

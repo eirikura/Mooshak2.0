@@ -90,20 +90,18 @@ namespace Mooshak2.Controllers
         /// <param name="courseID"></param>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult AssignUsers()
+        public ActionResult AssignUsers(int? userId)
         {
+            int userID = userId.Value;
 
             List<SelectListItem> listCourses = new List<SelectListItem>();
 
-            List<SelectListItem> listUsers = new List<SelectListItem>();
-
             listCourses = _service.getAllCoursesForAssigning();
-            listUsers = _service.getAllUsersForAssigning();
 
             UsersAndCoursesViewModel viewModel = new UsersAndCoursesViewModel()
             {
-                Courses = listCourses,
-                Users = listUsers
+                userID = userID,
+                Courses = listCourses
             };
 
             return View(viewModel);

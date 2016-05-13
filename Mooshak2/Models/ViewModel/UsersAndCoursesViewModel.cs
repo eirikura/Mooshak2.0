@@ -31,7 +31,5 @@ namespace Mooshak2.Models.ViewModel
         public ICollection<string> SelectedCourse { get; set; }
         public ICollection<SelectListItem> Courses { get; set; }
 
-        public ICollection<string> SelectedUsers { get; set; }
-        public ICollection<SelectListItem> Users { get; set; }
     }
 }

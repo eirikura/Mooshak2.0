@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Mooshak2.Models.Entities
 {
@@ -12,6 +13,7 @@ namespace Mooshak2.Models.Entities
         /// <summary>
         /// An unique auto-generated ID number of a submission.
         /// </summary>
+        [Key]
         public int submissionID { get; set; }
 
         /// <summary>

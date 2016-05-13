@@ -129,7 +129,7 @@ namespace Mooshak2.Services
         /// </summary>
         /// <param name="submissionID"></param>
         /// <returns>Returns a ViewModel.</returns>
-        public ReviewViewModel getReviewBySubmission(int submissionID)
+      /*  public ReviewViewModel getReviewBySubmission(int submissionID)
         {
             var submissionReviewQuery = (from submission in _db.Submissions
                                          where submission.submissionsID == submissionID
@@ -148,7 +148,7 @@ namespace Mooshak2.Services
             };
 
             return submissionReviewModel;
-        }
+        }*/
 
         /// <summary>
         /// This function adds a new review to the review database and links it to a submission.
