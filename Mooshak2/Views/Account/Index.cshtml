@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Mooshak2.Models.Entities.Users>
+﻿@model ICollection<Mooshak2.Models.Entities.Users>
 
 @{
     ViewBag.Title = "Index";
@@ -13,13 +13,16 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.ActionLink(item.username, "UserDetails", new { userID = item.userID})
-                </td>
-            </tr>
-        }
+         @if (Model != null)
+         {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.username, "UserDetails", new { userID = item.userID })
+                    </td>
+                </tr>
+            }
+         }
     </tbody>
 </table>
