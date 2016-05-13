@@ -27,6 +27,6 @@ namespace Mooshak2.Models.ViewModel
         /// The grade user got.
         /// Measures from 0-100.
         /// </summary>
-        public int grade { get; set; }
+        public int? grade { get; set; }
     }
 }
