@@ -15,12 +15,30 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Mooshak 2.0", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @if ((!User.Identity.IsAuthenticated))
+                {
+                    @Html.ActionLink("Mooshak 2.0", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Mooshak 2.0", "AdminView", "Account", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                @if (ViewContext.HttpContext.User.IsInRole("Teacher"))
+                {
+                    @Html.ActionLink("Mooshak 2.0", "TeacherView", "Account", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                @if (ViewContext.HttpContext.User.IsInRole("Student"))
+                {
+                    @Html.ActionLink("Mooshak 2.0", "StudentView", "Account", new { area = "" }, new { @class = "navbar-brand" })
+                }
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("All users", "Index", "Account")</li>
-                    <li>@Html.ActionLink("Create user", "Register", "Account")</li>
+                    @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("All users", "Index", "Account")</li>
+                        <li>@Html.ActionLink("Create user", "Register", "Account")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -29,9 +47,6 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mooshak 2.0</p>
-        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
