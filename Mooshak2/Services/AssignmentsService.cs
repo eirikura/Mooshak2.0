@@ -24,7 +24,7 @@ namespace Mooshak2.Services
         /// <summary>
         /// Returns a list of all the courses assigned to the given course ID.
         /// </summary>
-        /// <param name="coursID"></param>
+        /// <param name="courseID"></param>
         /// <returns></returns>
         public List<AssignmentViewModel> getAssigmentsInCourse(int courseID)
         {
@@ -85,7 +85,7 @@ namespace Mooshak2.Services
 
             var viewModel = new GradeViewModel
             {
-                grade = grade.grade
+                //grade = grade.grade
             };
             return viewModel;
         }
