@@ -31,11 +31,7 @@ namespace Mooshak2.Models.ViewModel
         /// <summary>
         /// Shows a list of the courses the current teacher is assigned to.
         /// </summary>
-<<<<<<< HEAD
-      //  public List<CourseCreateEditViewModel> activeCourses { get; set; }
-=======
         [Display(Name = "ActiveCourses")]
         public List<CourseViewModel> activeCourses { get; set; }
->>>>>>> TeacherView
     }
 }
