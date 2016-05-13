@@ -223,7 +223,12 @@
     <Compile Include="Models\ViewModel\CourseViewModel.cs" />
     <Compile Include="Models\ViewModel\GradeViewModel.cs" />
     <Compile Include="Models\ViewModel\LogInViewModel.cs" />
+    <Compile Include="Models\ViewModel\ReviewCreateViewModel.cs" />
+    <Compile Include="Models\ViewModel\ReviewEditViewModel.cs" />
+    <Compile Include="Models\ViewModel\ReviewViewModel.cs" />
     <Compile Include="Models\ViewModel\StudentViewModel.cs" />
+    <Compile Include="Models\ViewModel\SubmissionSendViewModel.cs" />
+    <Compile Include="Models\ViewModel\SubmissionViewModel.cs" />
     <Compile Include="Models\ViewModel\TeacherViewModel.cs" />
     <Compile Include="Models\ViewModel\UserCreateEditViewModel.cs" />
     <Compile Include="Models\ViewModel\UserViewModel.cs" />
@@ -232,6 +237,8 @@
     <Compile Include="Services\AccountsService.cs" />
     <Compile Include="Services\AssignmentsService.cs" />
     <Compile Include="Services\CoursesService.cs" />
+    <Compile Include="Services\ReviewsService.cs" />
+    <Compile Include="Services\SubmissionsService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
