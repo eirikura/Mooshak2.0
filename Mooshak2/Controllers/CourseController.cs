@@ -89,6 +89,7 @@ namespace Mooshak2.Controllers
         /// </summary>
         /// <param name="courseID"></param>
         /// <returns></returns>
+        [HttpGet]
         public ActionResult AssignUsers()
         {
 
@@ -107,5 +108,23 @@ namespace Mooshak2.Controllers
 
             return View(viewModel);
         }
+
+        [HttpPost]
+        public ActionResult AssignUsers(ICollection<string> selectedUsers)
+        {/*
+            if (selectedCities == null)
+            {
+                return “No cities are selected”;
+            }
+            else
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(“You selected – “ +string.Join(“,”, selectedCities));
+                return sb.ToString();
+            }*/
+            return null;
+        }
+
+
     }
 }
