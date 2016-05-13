@@ -223,7 +223,6 @@ namespace Mooshak2.Services
                 };
                 listSelectListItems.Add(selectList);
             }
-
             return listSelectListItems;
         }
 
@@ -241,7 +240,6 @@ namespace Mooshak2.Services
                 };
                 listSelectListItems.Add(selectList);
             }
-
             return listSelectListItems;
         }
 
