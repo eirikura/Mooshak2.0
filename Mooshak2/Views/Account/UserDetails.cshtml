@@ -114,6 +114,7 @@
         <div class="form-group">
             <div clss="col-md-offset-2 col-md-10">
                 <input type="submit" class="btn btn-default" value="Save" />
+                @Html.ActionLink("Assign user to courses", "AssignUsers", "Courses", new { userID = Model.userID }, new { @class= "btn btn-default" })
             </div>
         </div>
     </div>

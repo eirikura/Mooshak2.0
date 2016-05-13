@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace Mooshak2.Models.Entities
 {
@@ -19,5 +21,6 @@ namespace Mooshak2.Models.Entities
         /// An ID number of an course used to connect a course with an user.
         /// </summary>
         public int courseID { get; set; }
+
     }
 }
