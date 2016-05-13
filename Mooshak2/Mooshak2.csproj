@@ -295,11 +295,11 @@
     <Content Include="Views\Account\UserDetails.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\AdminView.cshtml" />
+    <Content Include="Views\Courses\CreateCourse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Assignment\" />
-    <Folder Include="Views\Courses\" />
     <Folder Include="Views\StudentViewModel\" />
     <Folder Include="Views\TeacherViewModel\" />
   </ItemGroup>

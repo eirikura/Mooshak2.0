@@ -14,7 +14,7 @@ namespace Mooshak2.Models.ViewModel
         /// <summary>
         /// Description of a course.
         /// </summary>
-        [Display(Description = "Course description")]
+        [Display(Name = "Course description")]
         public string courseDescription { get; set; }
     }
 }

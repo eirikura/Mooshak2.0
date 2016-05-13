@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Mooshak2.Models.ViewModel;
+using Mooshak2.Models.Entities;
 
 namespace Mooshak2.Controllers
 {
@@ -39,22 +40,23 @@ namespace Mooshak2.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public ActionResult CreateCourse()
         {
             return View();
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="newCourse"></param>
-        /// <returns></returns>
         [HttpPost]
         public ActionResult CreateCourse(CourseCreateViewModel newCourse)
         {
-            _service.addNewCourse(newCourse);
-
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _service.addNewCourse(newCourse);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(newCourse);
+            }
         }
 
         /// <summary>
