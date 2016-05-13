@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Mooshak2.Models;
-using Mooshak2.Models.Entities;
 
 namespace Mooshak2.Services
 {
@@ -28,9 +27,22 @@ namespace Mooshak2.Services
         /// </summary>
         /// <param name="courseID">An ID number used to find the course in question.</param>
         /// <returns>A course is returned with id, name and description.</returns>
-        public Courses getCourseByCourseID(int courseID)
+        public CourseViewModel getCourseByCourseID(int courseID)
         {
-            return db.Courses.SingleOrDefault(x => x.courseID == courseID);
+            var courseQuery = (from course in db.Courses
+                               where course.courseID == courseID
+                               select course).SingleOrDefault();
+
+            var courseModel = new CourseViewModel()
+            {
+                courseID = courseQuery.courseID,
+                courseName = courseQuery.name,
+                courseDescription = courseQuery.description
+            };
+
+            return courseModel;
+
+            //return db.Courses.SingleOrDefault(x => x.courseID == courseID);
         }
 
         /// <summary>
@@ -38,7 +50,7 @@ namespace Mooshak2.Services
         /// </summary>
         /// <param name="userID">Takes in a user's ID number.</param>
         /// <returns>A list of courses.</returns>
-        public ICollection<Courses> getCoursesByUser(int userID)
+        public ICollection<CourseViewModel> getCoursesByUser(int userID)
         {
             var userCoursesQuery = (from userCourses in db.UsersAndCourses
                                     where userCourses.userID == userID
@@ -46,30 +58,60 @@ namespace Mooshak2.Services
                                     on userCourses.courseID equals courses.courseID
                                     select courses).ToList();
 
-            return userCoursesQuery;
+            var userCoursesModel = new List<CourseViewModel>();
+
+            foreach (var course in userCoursesQuery)
+            {
+                userCoursesModel.Add(new CourseViewModel
+                {
+                    courseID = course.courseID,
+                    courseName = course.name,
+                    courseDescription = course.description
+                });
+            }
+
+            return userCoursesModel;
         }
 
         /// <summary>
         /// This function returns a list of all courses.
         /// </summary>
         /// <returns>A list of courses.</returns>
-        public ICollection<Courses> getAllCourses()
+        public ICollection<CourseViewModel> getAllCourses()
         {
-            var courses = (from course in db.Courses
-                          select course).ToList();
+            var coursesQuery = (from course in db.Courses
+                                select course).ToList();
 
-            return courses;
+            var coursesModel = new List<CourseViewModel>();
+
+            foreach (var course in coursesQuery)
+            {
+                coursesModel.Add(new CourseViewModel
+                {
+                    courseID = course.courseID,
+                    courseName = course.name,
+                    courseDescription = course.description
+                });
+            }
+
+            return coursesModel;
         }
 
         /// <summary>
         /// This function adds a new course to the database.
         /// </summary>
         /// <returns>Returns true if able to add, else returns false.</returns>
-        public bool addNewCourse(Courses newCourse)
+        public bool addNewCourse(CourseCreateViewModel newCourse)
         {
             bool successfullyAdded = false;
 
-            db.Courses.Add(newCourse);
+            Models.Entities.Courses addCourse = new Models.Entities.Courses()
+            {
+                name = newCourse.courseName,
+                description = newCourse.courseDescription
+            };
+
+            db.Courses.Add(addCourse);
 
             try
             {
@@ -88,7 +130,7 @@ namespace Mooshak2.Services
         /// This function adds a new connection between a user and a course to the database.
         /// </summary>
         /// <returns>Returns true if able to add, else returns false.</returns>
-        public bool addNewCourseAndUserConnection(UsersAndCourses connectionToAdd)
+        public bool addNewCourseAndUserConnection(UsersAndCoursesViewModel connectionToAdd)
         {
             bool successfullyAdded = false;
 
@@ -113,7 +155,7 @@ namespace Mooshak2.Services
         /// </summary>
         /// <param name="courseToChange">Takes in a course to change.</param>
         /// <returns>Returns true if editing the course finished successfully, else false.</returns>
-        public bool updateCourseInfo (Courses courseToChange)
+        public bool updateCourseInfo (CourseEditViewModel courseToChange)
         {
             bool successfullyEdited = false;
 
@@ -125,8 +167,8 @@ namespace Mooshak2.Services
 
                 if (query != null)
                 {
-                    query.name = courseToChange.name;
-                    query.description = courseToChange.description;
+                    query.name = courseToChange.courseName;
+                    query.description = courseToChange.courseDescription;
                     db.SaveChanges();
                     successfullyEdited = true;
                 }
