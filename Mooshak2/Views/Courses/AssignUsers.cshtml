@@ -1,0 +1,31 @@
+﻿@model Mooshak2.Models.ViewModel.UsersAndCoursesViewModel
+
+@{
+    ViewBag.Title = "Assign users";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h2>Assign users:</h2>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.LabelFor(model => model.SelectedCourse, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBoxFor(m => m.SelectedCourse, Model.Courses, new { size = 5 })
+                @Html.ValidationMessageFor(model => model.SelectedCourse, "", new { @class = "text-danger" })
+            </div>
+        </div>
+            @Html.LabelFor(model => model.SelectedUsers, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBoxFor(m => m.SelectedUsers, Model.Users, new { size = 5 })
+                @Html.ValidationMessageFor(model => model.SelectedUsers, "", new { @class = "text-danger" })
+            </div>
+        <div class="form-group">
+            <div clss="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Assign users" />
+            </div>
+        </div>
+}
