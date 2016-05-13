@@ -29,11 +29,36 @@ namespace Mooshak2.Controllers
         /// </summary>
         /// <param name="courseID"></param>
         /// <returns></returns>
+        [HttpGet]
+        public ActionResult CourseDetails(int? courseID)
+        {
+            if (courseID != null)
+            {
+                int ID = courseID.Value;
+
+                var viewModel = _service.getEditCourseByCourseID(ID);
+                return View(viewModel);
+            }
+            return View();
+        }
+
+        /// <summary>
+        /// Changes course details.
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
+        [HttpPost]
         public ActionResult CourseDetails(int courseID)
         {
-            var viewModel = _service.getCourseByCourseID(courseID);
+            var course = _service.getEditCourseByCourseID(courseID);
 
-            return View(viewModel);
+            if (course != null)
+            {
+                UpdateModel(course);
+                _service.updateCourseInfo(course);
+                return RedirectToAction("Index");
+            }
+            return View();
         }
 
         /// <summary>
@@ -57,31 +82,6 @@ namespace Mooshak2.Controllers
             {
                 return View(newCourse);
             }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="courseID"></param>
-        /// <returns></returns>
-        public ActionResult EditCourse(int courseID)
-        {
-            var viewModel = _service.getCourseByCourseID(courseID);
-
-            return View(viewModel);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="editCourse"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public ActionResult EditCourse(CourseEditViewModel editCourse)
-        {
-            _service.updateCourseInfo(editCourse);
-
-            return RedirectToAction("Index");
         }
 
         /// <summary>
