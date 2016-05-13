@@ -1,0 +1,36 @@
+﻿@model Mooshak2.Models.TeacherViewModel
+
+<div>
+    <h4>TeacherViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.courseID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.courseID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.assignmentID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.assignmentID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
