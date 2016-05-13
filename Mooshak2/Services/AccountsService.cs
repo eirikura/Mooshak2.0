@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
+﻿ using Microsoft.AspNet.Identity;
 using Mooshak2.Models;
 using Mooshak2.Models.Entities;
 using Mooshak2.Models.ViewModel;
@@ -26,13 +26,41 @@ namespace Mooshak2.Services
         /// Returns a list of all students
         /// </summary>
         /// <returns></returns>
-        public List<Users> getAllUsers()
-        {
-            List<Users> users = (from u in _db.Users
-                         select u).ToList();
+        public ICollection<UserViewModel> getAllUsers()
+        {/*
+            var coursesQuery = (from course in _db.Courses
+                                select course).ToList();
+
+            var coursesModel = new List<CourseViewModel>();
+
+            foreach (var course in coursesQuery)
+            {
+                coursesModel.Add(new CourseViewModel
+                {
+                    courseID = course.courseID,
+                    courseName = course.name,
+                    courseDescription = course.description
+                });
+            }*/
 
 
-            return users;
+
+
+            var user = (from u in _db.Users
+                        select u).ToList();
+
+            var usersModel = new List<UserViewModel>();
+
+            foreach (var u in user)
+            {
+                usersModel.Add(new UserViewModel
+                {
+                    username = u.username,
+                    userID = u.userID
+                });
+            }
+
+            return usersModel;
         }
 
         /// <summary>

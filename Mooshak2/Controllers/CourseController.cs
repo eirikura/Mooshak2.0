@@ -16,7 +16,8 @@ namespace Mooshak2.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+            var viewModel = _service.getAllCourses();
+            return View(viewModel);
         }
 
         /// <summary>

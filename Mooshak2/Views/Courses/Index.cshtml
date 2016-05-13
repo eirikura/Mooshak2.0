@@ -1,0 +1,34 @@
+﻿@model ICollection<Mooshak2.Models.Entities.Courses>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<h2>All courses:</h2>
+<table class="table table-hover">
+    <caption> A list of courses</caption>
+    <thead>
+        <tr>
+            <th>Course name:</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item., "UserDetails", new { userID = item.courseID })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.Display(item.courseDescription);
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>*@
