@@ -41,8 +41,6 @@ namespace Mooshak2.Services
             };
 
             return courseModel;
-
-            //return db.Courses.SingleOrDefault(x => x.courseID == courseID);
         }
 
         /// <summary>
@@ -134,7 +132,13 @@ namespace Mooshak2.Services
         {
             bool successfullyAdded = false;
 
-            db.UsersAndCourses.Add(connectionToAdd);
+            Models.Entities.UsersAndCourses addConnection = new Models.Entities.UsersAndCourses()
+            {
+                userID = connectionToAdd.userID,
+                courseID = connectionToAdd.courseID
+            };
+
+            db.UsersAndCourses.Add(addConnection);
 
             try
             {
