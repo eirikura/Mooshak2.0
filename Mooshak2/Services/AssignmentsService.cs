@@ -22,19 +22,36 @@ namespace Mooshak2.Services
         }
 
         /// <summary>
-        /// Returns a list of all the courses assigned to the given course ID.
+        /// Returns a list of all the assignments assigned to the given course ID.
         /// </summary>
         /// <param name="courseID"></param>
         /// <returns></returns>
-        public List<AssignmentViewModel> getAssigmentsInCourse(int courseID)
+        public ICollection<AssignmentViewModel> getAssignmentsInCourse(int courseID)
         {
-            ///TODO:
-            var course = _db.Courses.SingleOrDefault(x => x.courseID == courseID);
-
-
-
             return null;
         }
+
+        /// <summary>
+        /// A function that fetches a list of all assignments related to a user.
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        public ICollection<AssignmentViewModel> getAssignmentsByUser(int userID)
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// A function that uses assignment ID number to get a list of all assignment
+        /// parts belonging to an assignment.
+        /// </summary>
+        /// <param name="assignmentID"></param>
+        /// <returns></returns>
+        public ICollection<AssignmentPartViewModel> getAssignmentPartsByAssignment(int assignmentID)
+        {
+            return null;
+        }
+
 
         /// <summary>
         /// Returns an assignment assigned to the given assignment ID.
@@ -43,34 +60,19 @@ namespace Mooshak2.Services
         /// <returns></returns>
         public AssignmentViewModel getAssignmentByAssignmentID(int assignmentID)
         {
-            var assignment = _db.Assignments.SingleOrDefault(x => x.assignmentID == assignmentID);
+            var assignmentQuery = (from assignment in _db.Assignments
+                                   where assignment.assignmentID == assignmentID
+                                   select assignment).SingleOrDefault();
 
-            var assignmentParts = _db.AssignmentParts
-                .Where(x => x.assignmentID == assignmentID)
-                .Select(x => new AssignmentViewModel
-                {
-                    assignmentName = x.name
-                })
-                .ToList();
-
-            var viewModel = new AssignmentViewModel
+            var assignmentModel = new AssignmentViewModel()
             {
-                assignmentName = assignment.name,
-                PartsList = assignmentParts
+                assignmentID = assignmentQuery.assignmentID,
+                courseID = assignmentQuery.courseID,
+                name = assignmentQuery.name,
+                dueDate = assignmentQuery.dueDate
             };
-            return viewModel;
-        }
 
-        /// <summary>
-        /// Submits an assignment for a specified part ID by an user with the specified user ID.
-        /// </summary>
-        /// <param name="userID"></param>
-        /// <param name="partsID"></param>
-        /// <returns></returns>
-        public AssignmentViewModel submitAssignment(int userID, int partsID)
-        {
-            ///TODO:
-            return null;
+            return assignmentModel;
         }
 
         /// <summary>
@@ -91,39 +93,51 @@ namespace Mooshak2.Services
         }
 
         /// <summary>
-        /// Returns an users full name assigned to the specified user ID.
-        /// </summary>
-        /// <param name="userID"></param>
-        /// <returns></returns>
-        public UserCreateEditViewModel getFullNameByUserID(int userID)
-        {
-            var fullName = _db.Users.SingleOrDefault(x => x.userID == userID);
-
-            var viewModel = new UserCreateEditViewModel
-            {
-                fullName = fullName.fullName
-            };
-            return viewModel;
-        }
-
-        /// <summary>
         /// Returns an assignment that matches the given parts ID.
         /// </summary>
         /// <param name="partsID"></param>
         /// <returns></returns>
-        public AssignmentViewModel getAssignmentByPartsID(int partsID)
+        public AssignmentPartViewModel getAssignmentByPartsID(int partsID)
         {
-            var assignmentPart = _db.AssignmentParts.SingleOrDefault(x => x.partsID == partsID);
-            var assignmentID = assignmentPart.assignmentID;
+            var assignmentPartQuery = (from part in _db.AssignmentParts
+                                       where part.partsID == partsID
+                                       select part).SingleOrDefault();
 
-            var assignmentName = _db.Assignments.SingleOrDefault(x => x.assignmentID == assignmentID);
-
-            var viewModel = new AssignmentViewModel
+            var assignmentPartModel = new AssignmentPartViewModel()
             {
-                assignmentName = assignmentName.name
+                partsID = assignmentPartQuery.partsID,
+                assignmentID = assignmentPartQuery.assignmentID,
+                name = assignmentPartQuery.name,
+                description = assignmentPartQuery.description,
+                languageID = assignmentPartQuery.languageID,
+                percentage = assignmentPartQuery.percentage,
+                studyMaterial = assignmentPartQuery.studyMaterial
             };
 
-            return viewModel;
+            return assignmentPartModel;
+        }
+        
+        /// <summary>
+        /// A function that fetches a list of all possible programming languages.
+        /// </summary>
+        /// <returns>A list with all programming languages.</returns>
+        public ICollection<AssignmentLanguageViewModel> getAssignmentLanguages()
+        {
+            var languageQuery = (from language in _db.AssignmentLanguage
+                                 select language).ToList();
+
+            var languageModel = new List<AssignmentLanguageViewModel>();
+
+            foreach (var language in languageQuery)
+            {
+                languageModel.Add(new AssignmentLanguageViewModel
+                {
+                    languageID = language.languageID,
+                    name = language.name
+                });
+            }
+
+            return languageModel;
         }
         
     }

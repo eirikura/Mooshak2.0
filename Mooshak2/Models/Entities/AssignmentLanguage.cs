@@ -1,7 +1,10 @@
-﻿namespace Mooshak2.Models.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Mooshak2.Models.Entities
 {
     public class AssignmentLanguage
 	{
+        [Key]
         /// <summary>
         /// An unique ID number of a programming language.
         /// </summary>

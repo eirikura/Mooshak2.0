@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Mooshak2.Models.ViewModel;
 
 namespace Mooshak2.Models.ViewModel
 {
@@ -13,33 +14,28 @@ namespace Mooshak2.Models.ViewModel
     public class AssignmentViewModel
     {
         /// <summary>
+        /// The ID number of an assignment.
+        /// </summary>
+        public int assignmentID { get; set; }
+
+        /// <summary>
+        /// The ID number of course that the assignment belongs to.
+        /// </summary>
+        public int courseID { get; set; }
+
+        /// <summary>
         /// The name of the assignment.
         /// </summary>
-        public string assignmentName { get; set; }
+        public string name { get; set; }
 
         /// <summary>
-        /// The description of the assignment or a part of it.
+        /// When the assignment is due.
         /// </summary>
-        public string partsDescription { get; set; }
+        public DateTime dueDate { get; set; }
 
-        /// <summary>
-        /// The due date of an assignment.
-        /// </summary>
-        public DateTime assignmentDueDate { get; set; }
-
-        /// <summary>
-        /// The date of submission.
-        /// </summary>
-        public DateTime submissionDate { get; set; }
-
-        /// <summary>
-        /// The time of submission.
-        /// </summary>
-        public DateTime submissionTime { get; set; }
-
-        /// <summary>
+         /// <summary>
         /// Shows a list of the students upcoming assignments.
         /// </summary>
-        public List<AssignmentViewModel> PartsList { get; set; }
+        public List<AssignmentPartViewModel> partsList { get; set; }
     }
 }
