@@ -90,39 +90,40 @@ namespace Mooshak2.Controllers
         /// <param name="courseID"></param>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult AssignUsers()
+        public ActionResult AssignUsers(int? userId)
         {
+            int userID = userId.Value;
 
-            List<SelectListItem> listCourses = new List<SelectListItem>();
+            var courses = _service.getCoursesUserIsNotIn(userID);
 
-            List<SelectListItem> listUsers = new List<SelectListItem>();
+            var n = new List<SelectListItem>();
 
-            listCourses = _service.getAllCoursesForAssigning();
-            listUsers = _service.getAllUsersForAssigning();
-
-            UsersAndCoursesViewModel viewModel = new UsersAndCoursesViewModel()
+            foreach(var course in courses)
             {
-                Courses = listCourses,
-                Users = listUsers
-            };
+                n.Add(new SelectListItem
+                {
+                    Text = course.courseName,
+                    Value = course.courseID.ToString()
+                });
+            }
 
+            var viewModel = new UsersAndCoursesViewModel();
+
+            viewModel.Courses = n;
+            
             return View(viewModel);
         }
 
         [HttpPost]
-        public ActionResult AssignUsers(ICollection<string> selectedUsers)
-        {/*
-            if (selectedCities == null)
-            {
-                return “No cities are selected”;
-            }
-            else
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(“You selected – “ +string.Join(“,”, selectedCities));
-                return sb.ToString();
-            }*/
-            return null;
+        public ActionResult AssignUsers(int userId,UsersAndCoursesViewModel theModel)
+        {
+            var viewModel = new UsersAndCoursesViewModel();
+
+            viewModel.selectedCourse = theModel.selectedCourse;
+
+            _service.addNewCourseAndUserConnection(theModel);
+            return RedirectToAction("Index");
+
         }
 
 

@@ -328,37 +328,33 @@ namespace Mooshak2.Services
             return courseNonUsersModel;
         }
 
-        public UsersAndCoursesViewModel getAssigningCourseByCourseID(int courseID)
+        /// <summary>
+        /// Fetches a list of all courses that user is not currently in.
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        public List<CourseViewModel> getCoursesUserIsNotIn(int userID)
         {
-            var courseQuery = (from course in _db.Courses
-                               where course.courseID == courseID
-                               select course).SingleOrDefault();
+            var userNonCoursesQuery = (from courses in _db.Courses
+                                       where !(from userCourses in _db.UsersAndCourses
+                                               where userCourses.userID == userID
+                                               select userCourses.courseID).Contains(courses.courseID)
+                                       select courses).ToList();
 
-            var courseModel = new UsersAndCoursesViewModel()
+
+
+            var userNonCoursesModel = new List<CourseViewModel>();
+            foreach (var course in userNonCoursesQuery)
             {
-                courseID = courseQuery.courseID,
-                courseName = courseQuery.name
-            };
-
-            return courseModel;
-        }
-
-        public List<SelectListItem> getAllUsersForAssigning(UsersAndCoursesViewModel course)
-        {
-            List<SelectListItem> listSelectListItems = new List<SelectListItem>();
-
-
-
-            foreach (Users user in _db.Users)
-            {
-                SelectListItem selectList = new SelectListItem()
+                userNonCoursesModel.Add(new CourseViewModel
                 {
-                    Text = user.username,
-                    Value = user.userID.ToString()
-                };
-                listSelectListItems.Add(selectList);
+                    courseName = course.name,
+                    courseID   = course.courseID
+                });
             }
-            return listSelectListItems;
+
+            return userNonCoursesModel;
         }
+
     }
 }

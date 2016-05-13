@@ -97,6 +97,7 @@ namespace Mooshak2.Services
 
             var model = new UserCreateEditViewModel
             {
+                userID = u.userID,
                 username = u.username,
                 email = u.email,
                 fullName = u.fullName,
