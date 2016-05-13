@@ -209,26 +209,146 @@ namespace Mooshak2.Services
             return successfullyEdited;
         }
 
-        public UsersAndCoursesViewModel getAssigningCourseByCourseID(int courseID)
+        /// <summary>
+        /// Function fetches a user list of all users in a course.
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
+        public ICollection<UserViewModel> getUsersInCourse(int courseID)
         {
-            var courseQuery = (from course in _db.Courses
-                               where course.courseID == courseID
-                               select course).SingleOrDefault();
+            var courseUsersQuery = (from courseUsers in _db.UsersAndCourses
+                                    where courseUsers.courseID == courseID
+                                    join users in _db.Users
+                                    on courseUsers.userID equals users.userID
+                                    select users).ToList();
 
-            var courseModel = new UsersAndCoursesViewModel()
+            var courseUsersModel = new List<UserViewModel>();
+
+            foreach (var user in courseUsersQuery)
             {
-                courseID = courseQuery.courseID,
-                courseName = courseQuery.name
-            };
+                courseUsersModel.Add(new UserViewModel
+                {
+                    userID = user.userID,
+                    username = user.username,
+                    email = user.email,
+                    fullName = user.fullName,
+                    role = user.role,
+                    phoneNumber = user.phoneNumber
+                });
+            }
 
-            return courseModel;
+            return courseUsersModel;
         }
 
-        public List<SelectListItem> getAllUsersForAssigning(UsersAndCoursesViewModel course)
+        /// <summary>
+        /// Function fetches a user list of all teachers in a course.
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
+        public ICollection<UserViewModel> getTeachersInCourse(int courseID)
         {
+            var courseTeachersQuery = (from user in getUsersInCourse(courseID)
+                                       where user.role == "Teacher"
+                                       select user).ToList();
+
+            var courseTeachersModel = new List<UserViewModel>();
+
+            foreach (var teacher in courseTeachersQuery)
+            {
+                courseTeachersModel.Add(new UserViewModel
+                {
+                    userID = teacher.userID,
+                    username = teacher.username,
+                    email = teacher.email,
+                    role = teacher.role,
+                    fullName = teacher.fullName,
+                    phoneNumber = teacher.phoneNumber
+                });
+            }
+
+            return courseTeachersModel;
+        }
+
+        /// <summary>
+        /// Function fetches a user list of all students in a course.
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
+        public ICollection<UserViewModel> getStudentsInCourse(int courseID)
+        {
+            var courseStudentsQuery = (from user in getUsersInCourse(courseID)
+                                       where user.role == "Student"
+                                       select user).ToList();
+
+            var courseStudentsModel = new List<UserViewModel>();
+
+            foreach (var student in courseStudentsQuery)
+            {
+                courseStudentsModel.Add(new UserViewModel
+                {
+                    userID = student.userID,
+                    username = student.username,
+                    email = student.email,
+                    role = student.role,
+                    fullName = student.fullName,
+                    phoneNumber = student.phoneNumber
+                });
+            }
+
+            return courseStudentsModel;
+        }
+
+        /// <summary>
+        /// Function fetches a user list of all users not in course.
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
+        public ICollection<UserViewModel> getUsersNotInCourse(int courseID)
+        {
+            var courseNonUsersQuery = (from users in _db.Users
+                                       where !(from courseUsers in getUsersInCourse(courseID)
+                                               select courseUsers.userID).Contains(users.userID)
+                                       select users).ToList();
+
+            var courseNonUsersModel = new List<UserViewModel>();
+
+            foreach (var user in courseNonUsersQuery)
+            {
+                courseNonUsersModel.Add(new UserViewModel
+                {
+                    userID = user.userID,
+                    username = user.username,
+                    email = user.email,
+                    role = user.role,
+                    fullName = user.fullName,
+                    phoneNumber = user.phoneNumber
+                });
+            }
+
+            return courseNonUsersModel;
+        }
+
+        public List<SelectListItem> getAllCoursesForAssigning()
+        {
+
             List<SelectListItem> listSelectListItems = new List<SelectListItem>();
 
+            foreach (Courses course in _db.Courses)
+            {
+                SelectListItem selectList = new SelectListItem()
+                {
+                    Text = course.name,
+                    Value = course.courseID.ToString()
+                };
+                listSelectListItems.Add(selectList);
+            }
+            return listSelectListItems;
+        }
 
+        public List<SelectListItem> getAllUsersForAssigning()
+        {
+
+            List<SelectListItem> listSelectListItems = new List<SelectListItem>();
 
             foreach (Users user in _db.Users)
             {
@@ -241,5 +361,7 @@ namespace Mooshak2.Services
             }
             return listSelectListItems;
         }
+
+
     }
 }
