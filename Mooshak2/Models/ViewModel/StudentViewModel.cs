@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Mooshak2.Models.ViewModel
 {
@@ -15,21 +12,26 @@ namespace Mooshak2.Models.ViewModel
         /// <summary>
         /// Full name of the student that is currently logged in.
         /// </summary>
+        [Required]
+        [Display(Name = "Fullname")]
         public string fullName { get; set; }
 
         /// <summary>
         /// Used to get ID´s of courses the student is assigned to.
         /// </summary>
+        [Display(Name = "Course ID")]
         public int courseID { get; set; }
 
         /// <summary>
         /// Used to get ID´s of assignments the student is assigned to.
         /// </summary>
+        [Display(Name = "Assignment ID")]
         public int assignmentID { get; set; }
 
         /// <summary>
         /// Shows a list of the students upcoming assignments.
         /// </summary>
+        [Display(Name = "Upcoming Assignments")]
         public List<AssignmentViewModel> upcomingAssignments { get; set; }
     }
 }

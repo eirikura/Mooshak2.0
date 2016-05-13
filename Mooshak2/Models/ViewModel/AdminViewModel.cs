@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -14,11 +15,14 @@ namespace Mooshak2.Models.ViewModel
         /// <summary>
         /// Full name of the admin that is logged in.
         /// </summary>
+        [Required]
+        [Display(Name = "Fullname")]
         public string fullName { get; set; }
 
         /// <summary>
         /// List of the latest changes for changes like assignment added, user created or course created.
         /// </summary>
+        [Display(Name = "Latest Changes")]
         public List<AssignmentViewModel> latestChanges { get; set; }
     }
 }

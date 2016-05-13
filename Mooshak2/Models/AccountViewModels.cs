@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Mooshak2.Models.ViewModel;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.WebPages.Html;
 
