@@ -36,7 +36,7 @@
                 <ul class="nav navbar-nav">
                     @if (ViewContext.HttpContext.User.IsInRole("Admin"))
                     {
-                        <li>@Html.ActionLink("All users", "Index", "Account")</li>
+                        <li>@Html.ActionLink("All users", "Index/", "Account")</li>
                         <li>@Html.ActionLink("Create user", "Register", "Account")</li>
                         <li>@Html.ActionLink("Create course", "CreateCourse", "Courses")</li>
                     }
