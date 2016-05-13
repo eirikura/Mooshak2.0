@@ -105,7 +105,6 @@ namespace Mooshak2.Controllers
                     Text = course.courseName,
                     Value = course.courseID.ToString()
                 });
-
             }
 
             var viewModel = new UsersAndCoursesViewModel();
@@ -122,10 +121,7 @@ namespace Mooshak2.Controllers
 
             viewModel.selectedCourse = theModel.selectedCourse;
 
-            int theChoice = Int32.Parse(viewModel.selectedCourse);
-
-
-            _service.addNewCourseAndUserConnection(theModel, theChoice);
+            _service.addNewCourseAndUserConnection(theModel);
             return RedirectToAction("Index");
 
         }

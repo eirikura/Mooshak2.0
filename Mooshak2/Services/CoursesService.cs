@@ -152,14 +152,14 @@ namespace Mooshak2.Services
         /// This function adds a new connection between a user and a course to the database.
         /// </summary>
         /// <returns>Returns true if able to add, else returns false.</returns>
-        public bool addNewCourseAndUserConnection(UsersAndCoursesViewModel connectionToAdd, int choice)
+        public bool addNewCourseAndUserConnection(UsersAndCoursesViewModel connectionToAdd)
         {
             bool successfullyAdded = false;
 
             Models.Entities.UsersAndCourses addConnection = new Models.Entities.UsersAndCourses()
             {
                 userID = connectionToAdd.userID,
-                courseID = choice
+                courseID = connectionToAdd.courseID
             };
 
             _db.UsersAndCourses.Add(addConnection);
