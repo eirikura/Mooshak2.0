@@ -51,8 +51,27 @@ namespace Mooshak2.Services
         /// <returns></returns>
         public ICollection<AssignmentPartViewModel> getAssignmentPartsByAssignment(int assignmentID)
         {
-            //TODO:
-            return null;
+            var partsAssignmentQuery = (from parts in _db.AssignmentParts
+                                        where parts.assignmentID == assignmentID
+                                        select parts).ToList();
+
+            var partsAssignmentModel = new List<AssignmentPartViewModel>();
+
+            foreach (var part in partsAssignmentQuery)
+            {
+                partsAssignmentModel.Add(new AssignmentPartViewModel
+                {
+                    partsID = part.partsID,
+                    assignmentID = part.assignmentID,
+                    name = part.name,
+                    description = part.description,
+                    languageID = part.languageID,
+                    percentage = part.percentage,
+                    studyMaterial = part.studyMaterial
+                });
+            }
+
+            return partsAssignmentModel;
         }
 
 
