@@ -22,8 +22,9 @@ namespace Mooshak2.Models.Entities
 
         /// <summary>
         /// An ID used to set which programming language should be used for the assignment.
+        /// Is nullable.
         /// </summary>
-        public int languageID { get; set; }
+        public int? languageID { get; set; }
 
         /// <summary>
         /// A name(title) of a part.
@@ -32,17 +33,20 @@ namespace Mooshak2.Models.Entities
 
         /// <summary>
         /// A description of a part.
+        /// Is nullable.
         /// </summary>
         public string description { get; set; }
 
         /// <summary>
         /// The weight of a part in percentages.
         /// Example: An assignment is divided into two parts, each having 50% weight(percentage).
+        /// Is nullable.
         /// </summary>
-        public int percentage { get; set; }
+        public int? percentage { get; set; }
 
         /// <summary>
         /// Any additional study material needed for the specific part. This be a file.
+        /// Is nullable.
         /// </summary>
         public string studyMaterial { get; set; }
     }
