@@ -1,16 +1,12 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
-namespace Mooshak2.Models.Entities
+namespace Mooshak2.Models.ViewModel
 {
-    /// <summary>
-    /// The idea of reviews is to have a teacher give a direct review on an assignment
-    /// for a specified student. The student would be then able to see a review from a
-    /// teacher under an assignment he had submitted.
-    /// </summary>
-    public class Reviews
+    public class ReviewViewModel
     {
-        [Key]
         /// <summary>
         /// An unique auto-generated ID number of an review.
         /// </summary>
@@ -22,12 +18,12 @@ namespace Mooshak2.Models.Entities
         public int userID { get; set; }
 
         /// <summary>
-        /// The review grade given by teacher.
+        /// The review grade given by teacher. Can be null.
         /// </summary>
         public int? grade { get; set; }
 
         /// <summary>
-        /// The actual review given by teacher.
+        /// The actual review given by teacher. Can be null.
         /// </summary>
         public string reviewText { get; set; }
 

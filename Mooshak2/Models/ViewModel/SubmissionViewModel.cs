@@ -1,13 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
-namespace Mooshak2.Models.Entities
+namespace Mooshak2.Models.ViewModel
 {
-    /// <summary>
-    /// Students can submit assignments or assignmentParts into the system.
-    /// These submissions are then stored withis this entity and are connected
-    /// to an user and assignmets using specific ID´s.
-    /// </summary>
-    public class Submissions
+    public class SubmissionViewModel
     {
         /// <summary>
         /// An unique auto-generated ID number of a submission.
