@@ -35,5 +35,10 @@ namespace Mooshak2.Models.Entities
         /// The creation time of the review.
         /// </summary>
         public DateTime creationDate { get; set; }
+
+        /// <summary>
+        /// The time when the review was last updated. Has creationDate when review is created.
+        /// </summary>
+        public DateTime lastUpdated { get; set; }
     }
 }

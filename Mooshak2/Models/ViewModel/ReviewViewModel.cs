@@ -18,12 +18,12 @@ namespace Mooshak2.Models.ViewModel
         public int userID { get; set; }
 
         /// <summary>
-        /// The review grade given by teacher.
+        /// The review grade given by teacher. Can be null.
         /// </summary>
         public int? grade { get; set; }
 
         /// <summary>
-        /// The actual review given by teacher.
+        /// The actual review given by teacher. Can be null.
         /// </summary>
         public string reviewText { get; set; }
 
@@ -31,5 +31,10 @@ namespace Mooshak2.Models.ViewModel
         /// The creation time of the review.
         /// </summary>
         public DateTime creationDate { get; set; }
+
+        /// <summary>
+        /// The time when the review was last updated. Has creationDate when review is created.
+        /// </summary>
+        public DateTime lastUpdated { get; set; }
     }
 }

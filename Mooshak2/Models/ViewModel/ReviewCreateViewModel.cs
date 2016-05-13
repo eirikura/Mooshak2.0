@@ -13,12 +13,17 @@ namespace Mooshak2.Models.ViewModel
         public int userID { get; set; }
 
         /// <summary>
-        /// The review grade given by teacher.
+        /// An ID number used to identify which submission a review belongs to.
+        /// </summary>
+        public int submissionID { get; set; }
+
+        /// <summary>
+        /// The review grade given by teacher. Can be null.
         /// </summary>
         public int? grade { get; set; }
 
         /// <summary>
-        /// The actual review given by teacher.
+        /// The actual review given by teacher. Can be null.
         /// </summary>
         public string reviewText { get; set; }
 
