@@ -128,7 +128,7 @@ namespace Mooshak2.Services
         /// This function adds a new connection between a user and a course to the database.
         /// </summary>
         /// <returns>Returns true if able to add, else returns false.</returns>
-        public bool addNewCourseAndUserConnection(UsersAndCoursesViewModel connectionToAdd)
+       /* public bool addNewCourseAndUserConnection(UsersAndCoursesViewModel connectionToAdd)
         {
             bool successfullyAdded = false;
 
@@ -151,7 +151,7 @@ namespace Mooshak2.Services
             }
 
             return successfullyAdded;
-        }
+        }*/
 
         /// <summary>
         /// This function updates values for a chosen course when an admin changes its values.
