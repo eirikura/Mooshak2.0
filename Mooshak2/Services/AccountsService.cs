@@ -1,4 +1,4 @@
-﻿ using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Mooshak2.Models;
 using Mooshak2.Models.Entities;
 using Mooshak2.Models.ViewModel;
@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Mooshak2.Services
 {
@@ -26,6 +27,7 @@ namespace Mooshak2.Services
         /// Returns a list of all students
         /// </summary>
         /// <returns></returns>
+        [ValidateAntiForgeryToken]
         public ICollection<UserViewModel> getAllUsers()
         {/*
             var coursesQuery = (from course in _db.Courses
@@ -42,9 +44,6 @@ namespace Mooshak2.Services
                     courseDescription = course.description
                 });
             }*/
-
-
-
 
             var user = (from u in _db.Users
                         select u).ToList();
