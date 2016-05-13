@@ -28,6 +28,7 @@ namespace Mooshak2.Services
         /// <returns></returns>
         public ICollection<AssignmentViewModel> getAssignmentsInCourse(int courseID)
         {
+            //TODO:
             return null;
         }
 
@@ -38,6 +39,7 @@ namespace Mooshak2.Services
         /// <returns></returns>
         public ICollection<AssignmentViewModel> getAssignmentsByUser(int userID)
         {
+            //TODO:
             return null;
         }
 
@@ -49,6 +51,7 @@ namespace Mooshak2.Services
         /// <returns></returns>
         public ICollection<AssignmentPartViewModel> getAssignmentPartsByAssignment(int assignmentID)
         {
+            //TODO:
             return null;
         }
 
@@ -78,8 +81,7 @@ namespace Mooshak2.Services
         /// <summary>
         /// Returns grade for an user with the specified user ID for an assignment part with the specified parts ID.
         /// </summary>
-        /// <param name="userID"></param>
-        /// <param name="partsID"></param>
+        /// <param name="reviewID"></param>
         /// <returns></returns>
         public GradeViewModel getGradeByUserReviewID(int reviewID)
         {
@@ -87,7 +89,7 @@ namespace Mooshak2.Services
 
             var viewModel = new GradeViewModel
             {
-                //grade = grade.grade
+                grade = grade.grade
             };
             return viewModel;
         }
@@ -139,6 +141,141 @@ namespace Mooshak2.Services
 
             return languageModel;
         }
+
+        /// <summary>
+        /// A function that adds a new assignment to Assignments table.
+        /// </summary>
+        /// <param name="newAssignment"></param>
+        /// <returns>True if it was added, false otherwise.</returns>
+        public bool createNewAssignment(AssignmentCreateViewModel newAssignment)
+        {
+            bool successfullyAdded = false;
+
+            Models.Entities.Assignments addAssignment = new Models.Entities.Assignments()
+            {
+                courseID = newAssignment.courseID,
+                name = newAssignment.name,
+                dueDate = newAssignment.dueDate
+            };
+
+            _db.Assignments.Add(addAssignment);
+
+            try
+            {
+                _db.SaveChanges();
+                successfullyAdded = true;
+            }
+            catch
+            {
+                successfullyAdded = false;
+            }
+
+
+            return successfullyAdded;
+        }
+
+        /// <summary>
+        /// A function that adds a new assignment part to an assignment
+        /// and adds to AssignmentParts table.
+        /// </summary>
+        /// <param name="newAssignmentPart"></param>
+        /// <returns>True if added succesfully, otherwise false.</returns>
+        public bool createNewAssignmentPart(AssignmentPartCreateViewModel newAssignmentPart)
+        {
+            bool successfullyAdded = false;
+
+            Models.Entities.AssignmentParts addPart = new Models.Entities.AssignmentParts()
+            {
+                assignmentID = newAssignmentPart.assignmentID,
+                name = newAssignmentPart.name,
+                description = newAssignmentPart.description,
+                languageID = newAssignmentPart.languageID,
+                percentage = newAssignmentPart.percentage,
+                studyMaterial = newAssignmentPart.studyMaterial
+            };
+
+            _db.AssignmentParts.Add(addPart);
+
+            try
+            {
+                _db.SaveChanges();
+                successfullyAdded = true;
+            }
+            catch
+            {
+                successfullyAdded = false;
+            }
+
+            return successfullyAdded;
+        }
+
+        /// <summary>
+        /// A function that changes values of an assignment and updates
+        /// the data table with changed values.
+        /// </summary>
+        /// <param name="assignmentToEdit"></param>
+        /// <returns></returns>
+        public bool editAssignment(AssignmentEditViewModel assignmentToEdit)
+        {
+            bool successfullyEdited = false;
+
+            try
+            {
+                var assignmentQuery = (from assignment in _db.Assignments
+                                       where assignment.assignmentID == assignmentToEdit.assignmentID
+                                       select assignment).SingleOrDefault();
+
+                if (assignmentQuery != null)
+                {
+                    assignmentQuery.name = assignmentToEdit.name;
+                    assignmentQuery.dueDate = assignmentToEdit.dueDate;
+
+                    _db.SaveChanges();
+                    successfullyEdited = true;
+                }
+            }
+            catch
+            {
+                successfullyEdited = false;
+            }
+
+            return successfullyEdited;
+        }
         
+        /// <summary>
+        /// A function that changes values of an assignment part and updates
+        /// the data table with changed values.
+        /// </summary>
+        /// <param name="assignmentPartToEdit"></param>
+        /// <returns></returns>
+        public bool editAssignmentPart(AssignmentPartEditViewModel assignmentPartToEdit)
+        {
+            bool successfullyEdited = false;
+
+            try
+            {
+                var partQuery = (from parts in _db.AssignmentParts
+                                 where parts.partsID == assignmentPartToEdit.partsID
+                                 select parts).SingleOrDefault();
+
+                if (partQuery != null)
+                {
+                    partQuery.name = assignmentPartToEdit.name;
+                    partQuery.languageID = assignmentPartToEdit.languageID;
+                    partQuery.description = assignmentPartToEdit.description;
+                    partQuery.percentage = assignmentPartToEdit.percentage;
+                    partQuery.studyMaterial = assignmentPartToEdit.studyMaterial;
+
+                    _db.SaveChanges();
+                    successfullyEdited = true;
+                }
+            }
+            catch
+            {
+                successfullyEdited = false;
+            }
+
+            return successfullyEdited;
+        }        
     }
 }

@@ -217,6 +217,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ViewModel\AdminViewModel.cs" />
     <Compile Include="Models\ViewModel\AssignmentCreateEditViewModel.cs" />
+    <Compile Include="Models\ViewModel\AssignmentCreateViewModel.cs" />
+    <Compile Include="Models\ViewModel\AssignmentEditViewModel.cs" />
     <Compile Include="Models\ViewModel\AssignmentLanguageViewModel.cs" />
     <Compile Include="Models\ViewModel\AssignmentPartCreateViewModel.cs" />
     <Compile Include="Models\ViewModel\AssignmentPartEditViewModel.cs" />
